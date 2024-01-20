@@ -39,9 +39,9 @@
             LBL_RemoteIP = new Label();
             LBL_LocalIP = new Label();
             ToolTip = new ToolTip(components);
-            GBX_HardwareStats = new Guna.UI2.WinForms.Guna2GroupBox();
             LBL_CpuUsage = new Label();
             LBL_RamUsage = new Label();
+            GBX_HardwareStats = new Guna.UI2.WinForms.Guna2GroupBox();
             GBX_NetworkStats.SuspendLayout();
             GBX_HardwareStats.SuspendLayout();
             SuspendLayout();
@@ -113,6 +113,8 @@
             LBL_RemoteIP.TextAlign = ContentAlignment.MiddleCenter;
             ToolTip.SetToolTip(LBL_RemoteIP, "Click to copy your remote adress");
             LBL_RemoteIP.Click += LBL_RemoteIP_Click;
+            LBL_RemoteIP.MouseEnter += LBL_RemoteIP_MouseEnter;
+            LBL_RemoteIP.MouseLeave += LBL_RemoteIP_MouseLeave;
             // 
             // LBL_LocalIP
             // 
@@ -127,6 +129,32 @@
             LBL_LocalIP.TextAlign = ContentAlignment.MiddleCenter;
             ToolTip.SetToolTip(LBL_LocalIP, "Click to copy your local adress");
             LBL_LocalIP.Click += LBL_LocalIP_Click;
+            // 
+            // LBL_CpuUsage
+            // 
+            LBL_CpuUsage.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_CpuUsage.Location = new Point(20, 112);
+            LBL_CpuUsage.Margin = new Padding(20, 5, 20, 5);
+            LBL_CpuUsage.Name = "LBL_CpuUsage";
+            LBL_CpuUsage.Size = new Size(230, 29);
+            LBL_CpuUsage.TabIndex = 0;
+            LBL_CpuUsage.Text = "CPU usage: 0%";
+            LBL_CpuUsage.TextAlign = ContentAlignment.MiddleCenter;
+            ToolTip.SetToolTip(LBL_CpuUsage, "Your current system CPU usage.");
+            LBL_CpuUsage.Click += LBL_LocalIP_Click;
+            // 
+            // LBL_RamUsage
+            // 
+            LBL_RamUsage.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_RamUsage.Location = new Point(20, 73);
+            LBL_RamUsage.Margin = new Padding(20, 5, 20, 5);
+            LBL_RamUsage.Name = "LBL_RamUsage";
+            LBL_RamUsage.Size = new Size(230, 29);
+            LBL_RamUsage.TabIndex = 0;
+            LBL_RamUsage.Text = "RAM usage: 0%";
+            LBL_RamUsage.TextAlign = ContentAlignment.MiddleCenter;
+            ToolTip.SetToolTip(LBL_RamUsage, "Your current system RAM usage.");
+            LBL_RamUsage.Click += LBL_LocalIP_Click;
             // 
             // GBX_HardwareStats
             // 
@@ -153,32 +181,6 @@
             GBX_HardwareStats.Text = "Hardware";
             GBX_HardwareStats.TextAlign = HorizontalAlignment.Center;
             GBX_HardwareStats.UseTransparentBackground = true;
-            // 
-            // LBL_CpuUsage
-            // 
-            LBL_CpuUsage.Cursor = Cursors.Hand;
-            LBL_CpuUsage.Font = new Font("Nunito Sans Normal", 11.25F);
-            LBL_CpuUsage.Location = new Point(20, 112);
-            LBL_CpuUsage.Margin = new Padding(20, 5, 20, 5);
-            LBL_CpuUsage.Name = "LBL_CpuUsage";
-            LBL_CpuUsage.Size = new Size(230, 29);
-            LBL_CpuUsage.TabIndex = 0;
-            LBL_CpuUsage.Text = "CPU usage: 0%";
-            LBL_CpuUsage.TextAlign = ContentAlignment.MiddleCenter;
-            LBL_CpuUsage.Click += LBL_LocalIP_Click;
-            // 
-            // LBL_RamUsage
-            // 
-            LBL_RamUsage.Cursor = Cursors.Hand;
-            LBL_RamUsage.Font = new Font("Nunito Sans Normal", 11.25F);
-            LBL_RamUsage.Location = new Point(20, 73);
-            LBL_RamUsage.Margin = new Padding(20, 5, 20, 5);
-            LBL_RamUsage.Name = "LBL_RamUsage";
-            LBL_RamUsage.Size = new Size(230, 29);
-            LBL_RamUsage.TabIndex = 0;
-            LBL_RamUsage.Text = "RAM usage: 0%";
-            LBL_RamUsage.TextAlign = ContentAlignment.MiddleCenter;
-            LBL_RamUsage.Click += LBL_LocalIP_Click;
             // 
             // ServerStatsView
             // 

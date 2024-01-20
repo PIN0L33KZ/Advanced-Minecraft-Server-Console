@@ -82,7 +82,7 @@
             TAC_Main.TabButtonIdleState.InnerColor = Color.Empty;
             TAC_Main.TabButtonSelectedState.BorderColor = Color.Empty;
             TAC_Main.TabButtonSelectedState.FillColor = Color.FromArgb(49, 52, 58);
-            TAC_Main.TabButtonSelectedState.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TAC_Main.TabButtonSelectedState.Font = new Font("Nunito Sans Normal", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TAC_Main.TabButtonSelectedState.ForeColor = Color.White;
             TAC_Main.TabButtonSelectedState.InnerColor = Color.FromArgb(37, 93, 213);
             TAC_Main.TabButtonSize = new Size(180, 40);

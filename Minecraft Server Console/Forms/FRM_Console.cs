@@ -88,7 +88,7 @@ namespace Minecraft_Server_Console
 
         private void AddServerStatsView()
         {
-            _serverStatsView = new ServerStatsView(_serverConsoleView) {  Dock = DockStyle.Fill };
+            _serverStatsView = new ServerStatsView(_serverConsoleView) { Dock = DockStyle.Fill };
             TAP_ServerStats.Controls.Add(_serverStatsView);
             _serverStatsView.BringToFront();
             _serverStatsView.Hide();

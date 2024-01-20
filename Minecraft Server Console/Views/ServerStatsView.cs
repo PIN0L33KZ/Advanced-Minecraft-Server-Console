@@ -7,7 +7,9 @@ namespace Minecraft_Server_Console.Views
 {
     public partial class ServerStatsView : UserControl
     {
-        private ServerConsoleView _serverConsoleView;
+        private readonly ServerConsoleView _serverConsoleView;
+        private string _remoteIpAddress;
+
         public ServerStatsView(ServerConsoleView serverConsoleView)
         {
             InitializeComponent();
@@ -28,11 +30,15 @@ namespace Minecraft_Server_Console.Views
         {
             while(true)
             {
-                this.BeginInvoke(new Action(() =>
+                _remoteIpAddress = GetRemoteIPAsync();
+
+                _ = BeginInvoke(new Action(() =>
                 {
                     LBL_LocalIP.Text = "Local-IP: " + GetLocalIP();
-                    LBL_RemoteIP.Text = "Remote-IP: " + GetRemoteIPAsync();
+                    LBL_RemoteIP.Text = "Remote-IP: " + _remoteIpAddress;
                 }));
+
+                HideRemoteIPAddress();
 
                 await Task.Delay(6000);
             }
@@ -42,10 +48,10 @@ namespace Minecraft_Server_Console.Views
         {
             while(true)
             {
-                var ping = new Ping();
-                var reply = ping.Send("8.8.8.8");
+                Ping ping = new();
+                PingReply reply = ping.Send("8.8.8.8");
 
-                this.BeginInvoke(new Action(() => { LBL_Ping.Text = $"Ping: {reply.RoundtripTime}/ms"; }));
+                _ = BeginInvoke(new Action(() => { LBL_Ping.Text = $"Ping: {reply.RoundtripTime}/ms"; }));
                 await Task.Delay(1000);
             }
         }
@@ -54,22 +60,22 @@ namespace Minecraft_Server_Console.Views
         {
             while(true)
             {
-                var startTime = _serverConsoleView.ServerStart;
-             
+                DateTime startTime = _serverConsoleView.ServerStart;
+
                 if(startTime == new DateTime())
                 {
-                    this.BeginInvoke(new Action(() => { LBL_ServerUptime.Text = "Uptime: not started yet."; }));
+                    _ = BeginInvoke(new Action(() => { LBL_ServerUptime.Text = "Uptime: not started yet."; }));
 
                     await Task.Delay(1000);
                     continue;
                 }
 
-                var now = DateTime.Now;
+                DateTime now = DateTime.Now;
 
-                var span = now - startTime;
+                TimeSpan span = now - startTime;
 
-                this.BeginInvoke(new Action(() => { LBL_ServerUptime.Text = $"Uptime: {FormatTimeSpan(span)}"; }));
-                
+                _ = BeginInvoke(new Action(() => { LBL_ServerUptime.Text = $"Uptime: {FormatTimeSpan(span)}"; }));
+
                 await Task.Delay(1000);
             }
         }
@@ -81,11 +87,11 @@ namespace Minecraft_Server_Console.Views
 
         private static IPAddress GetLocalIP()
         {
-            var hostname = Dns.GetHostName();
+            string hostname = Dns.GetHostName();
 
-            var localIps = Dns.GetHostAddresses(hostname);
+            IPAddress[] localIps = Dns.GetHostAddresses(hostname);
 
-            foreach(var ip in localIps)
+            foreach(IPAddress ip in localIps)
             {
                 if(ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                 {
@@ -98,17 +104,15 @@ namespace Minecraft_Server_Console.Views
 
         private static string GetRemoteIPAsync()
         {
-            using(var webClient = new WebClient())
+            using WebClient webClient = new();
+            try
             {
-                try
-                {
-                    return webClient.DownloadString(@"https://api64.ipify.org");
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Unable to fetch remote ip. You may be offline?\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return "";
-                }
+                return webClient.DownloadString(@"https://api64.ipify.org");
+            }
+            catch(Exception ex)
+            {
+                _ = MessageBox.Show("Unable to fetch remote ip. You may be offline?\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
             }
         }
 
@@ -146,6 +150,30 @@ namespace Minecraft_Server_Console.Views
             }
         }
 
+        private void HideRemoteIPAddress()
+        {
+            string hiddenRemoteIpAddress = "";
+
+            foreach(char c in _remoteIpAddress)
+            {
+                if(c == '.')
+                {
+                    continue;
+                }
+
+                if(char.IsNumber(c))
+                {
+                    hiddenRemoteIpAddress += "X";
+                }
+                else
+                {
+                    hiddenRemoteIpAddress += c.ToString();
+                }
+            }
+
+            _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + hiddenRemoteIpAddress; }));
+        }
+
         private void LBL_LocalIP_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(LBL_LocalIP.Text.Split(':')[1].Trim());
@@ -154,6 +182,16 @@ namespace Minecraft_Server_Console.Views
         private void LBL_RemoteIP_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(LBL_RemoteIP.Text.Split(":")[1].Trim());
+        }
+
+        private void LBL_RemoteIP_MouseEnter(object sender, EventArgs e)
+        {
+            LBL_RemoteIP.Text = "Remote-IP: " + _remoteIpAddress;
+        }
+
+        private void LBL_RemoteIP_MouseLeave(object sender, EventArgs e)
+        {
+            HideRemoteIPAddress();
         }
     }
 }

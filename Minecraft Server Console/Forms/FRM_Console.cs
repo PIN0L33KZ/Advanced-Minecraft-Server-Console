@@ -1,3 +1,4 @@
+using Minecraft_Server_Console.Forms;
 using Minecraft_Server_Console.Views;
 
 namespace Minecraft_Server_Console
@@ -7,6 +8,7 @@ namespace Minecraft_Server_Console
         private SetupAppDirectoryView? _setupDirectoryView;
         private SetupJarFileView? _setupJarFileView;
         private ServerConsoleView? _serverConsoleView;
+        private PlayersView? _playersView;
         private ServerStatsView? _serverStatsView;
 
         public FRM_Console()
@@ -26,6 +28,7 @@ namespace Minecraft_Server_Console
                 {
                     AddServerConsoleView();
                     AddServerStatsView();
+                    AddPlayersView();
                     return;
                 }
 
@@ -88,10 +91,18 @@ namespace Minecraft_Server_Console
 
         private void AddServerStatsView()
         {
-            _serverStatsView = new ServerStatsView(_serverConsoleView) { Dock = DockStyle.Fill };
+            _serverStatsView = new ServerStatsView() { Dock = DockStyle.Fill };
             TAP_ServerStats.Controls.Add(_serverStatsView);
             _serverStatsView.BringToFront();
             _serverStatsView.Hide();
+        }
+        
+        private void AddPlayersView()
+        {
+            _playersView = new PlayersView() { Dock = DockStyle.Fill };
+            TAP_Players.Controls.Add(_playersView);
+            _playersView?.BringToFront();
+            _playersView?.Hide();
         }
         #endregion
 
@@ -111,6 +122,7 @@ namespace Minecraft_Server_Console
 
             AddServerConsoleView();
             AddServerStatsView();
+            AddPlayersView();
         }
         #endregion
 
@@ -120,16 +132,21 @@ namespace Minecraft_Server_Console
             {
                 // Server Console Tab
                 case 0:
-                    // Hide all other views
-                    _serverStatsView.Hide();
+                    _serverStatsView?.Hide();
+                    _playersView?.Hide();
                     TransitionMaster.Show(_serverConsoleView);
                     break;
 
                 case 1:
-                    // Hide all other views
-                    _serverConsoleView.Hide();
+                    _serverConsoleView?.Hide();
+                    _serverStatsView?.Hide();
+                    TransitionMaster.Show(_playersView);
+                    break;
+
+                case 2:
+                    _serverConsoleView?.Hide();
+                    _playersView?.Hide();
                     TransitionMaster.Show(_serverStatsView);
-                    // Show stats view
                     break;
             }
         }

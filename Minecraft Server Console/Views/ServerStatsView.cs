@@ -7,14 +7,13 @@ namespace Minecraft_Server_Console.Views
 {
     public partial class ServerStatsView : UserControl
     {
-        private readonly ServerConsoleView _serverConsoleView;
         private string _remoteIpAddress;
+        private DateTime _serverStart;
 
-        public ServerStatsView(ServerConsoleView serverConsoleView)
+        public ServerStatsView()
         {
             InitializeComponent();
-
-            _serverConsoleView = serverConsoleView;
+            ServerConsoleView.ServerStarted += ServerStartedHandler;
         }
 
         private void ServerStatsView_Load(object sender, EventArgs e)
@@ -60,7 +59,7 @@ namespace Minecraft_Server_Console.Views
         {
             while(true)
             {
-                DateTime startTime = _serverConsoleView.ServerStart;
+                DateTime startTime = _serverStart;
 
                 if(startTime == new DateTime())
                 {
@@ -172,6 +171,11 @@ namespace Minecraft_Server_Console.Views
             }
 
             _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + hiddenRemoteIpAddress; }));
+        }
+
+        private void ServerStartedHandler(object sender, ServerEventArgs e)
+        {
+            _serverStart = e.StartTime;
         }
 
         private void LBL_LocalIP_Click(object sender, EventArgs e)

@@ -4,7 +4,7 @@ namespace Minecraft_Server_Console.Views
 {
     public partial class ServerConsoleView : UserControl
     {
-        internal DateTime ServerStart { get; private set; }
+        public static event EventHandler<ServerEventArgs> ServerStarted;
         private Process? _serverProcess;
 
         public ServerConsoleView()
@@ -44,11 +44,7 @@ namespace Minecraft_Server_Console.Views
                     }
                 }
 
-                ServerStart = DateTime.Now;
-
                 await Task.Run(() => { StartServerProcess(jarFile[^1]); });
-
-                ServerStart = new DateTime();
 
                 BTN_StartServer.Enabled = true;
                 BTN_StopServer.Enabled = false;
@@ -83,6 +79,11 @@ namespace Minecraft_Server_Console.Views
             _serverProcess.Close();
         }
 
+        protected static void OnServerStarted(DateTime startTime)
+        {
+            ServerStarted?.Invoke(null, new ServerEventArgs(startTime));
+        }
+
         private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             if(string.IsNullOrEmpty(e.Data))
@@ -91,8 +92,7 @@ namespace Minecraft_Server_Console.Views
             }
 
             #region Iterate through keywords
-            _ = BeginInvoke(new Action(
-            () =>
+            _ = BeginInvoke(new Action(() =>
             {
                 switch(e.Data)
                 {
@@ -105,6 +105,7 @@ namespace Minecraft_Server_Console.Views
                         BTN_ReloadServer.Enabled = true;
                         PNL_SendCommandArea.Enabled = true;
                         ProgressIndicator.Hide();
+                        OnServerStarted(DateTime.Now);
                         goto default;
 
                     case var s when e.Data.Contains("INFO]: CONSOLE: Reload complete.") && !e.Data.Contains('<') && !e.Data.Contains('>'):
@@ -269,6 +270,16 @@ namespace Minecraft_Server_Console.Views
             Process[] processes = Process.GetProcessesByName(processName);
 
             return processes;
+        }
+    }
+
+    public class ServerEventArgs : EventArgs
+    {
+        public DateTime StartTime { get; }
+
+        public ServerEventArgs(DateTime startTime)
+        {
+            StartTime = startTime;
         }
     }
 }

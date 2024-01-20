@@ -62,13 +62,13 @@
             GBX_NetworkStats.FillColor = Color.FromArgb(49, 52, 58);
             GBX_NetworkStats.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GBX_NetworkStats.ForeColor = Color.FromArgb(219, 219, 219);
-            GBX_NetworkStats.Location = new Point(71, 60);
+            GBX_NetworkStats.Location = new Point(119, 60);
             GBX_NetworkStats.Margin = new Padding(10);
             GBX_NetworkStats.Name = "GBX_NetworkStats";
             GBX_NetworkStats.ShadowDecoration.CustomizableEdges = customizableEdges2;
             GBX_NetworkStats.ShadowDecoration.Depth = 10;
             GBX_NetworkStats.ShadowDecoration.Shadow = new Padding(6);
-            GBX_NetworkStats.Size = new Size(301, 215);
+            GBX_NetworkStats.Size = new Size(258, 215);
             GBX_NetworkStats.TabIndex = 0;
             GBX_NetworkStats.Text = "Network";
             GBX_NetworkStats.TextAlign = HorizontalAlignment.Center;
@@ -80,7 +80,7 @@
             LBL_ServerUptime.Location = new Point(20, 171);
             LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
             LBL_ServerUptime.Name = "LBL_ServerUptime";
-            LBL_ServerUptime.Size = new Size(261, 29);
+            LBL_ServerUptime.Size = new Size(218, 29);
             LBL_ServerUptime.TabIndex = 0;
             LBL_ServerUptime.Text = "Uptime: not started yet.";
             LBL_ServerUptime.TextAlign = ContentAlignment.MiddleCenter;
@@ -93,7 +93,7 @@
             LBL_Ping.Location = new Point(20, 132);
             LBL_Ping.Margin = new Padding(20, 5, 20, 5);
             LBL_Ping.Name = "LBL_Ping";
-            LBL_Ping.Size = new Size(261, 29);
+            LBL_Ping.Size = new Size(218, 29);
             LBL_Ping.TabIndex = 0;
             LBL_Ping.Text = "Ping: 0/ms";
             LBL_Ping.TextAlign = ContentAlignment.MiddleCenter;
@@ -107,7 +107,7 @@
             LBL_RemoteIP.Location = new Point(20, 93);
             LBL_RemoteIP.Margin = new Padding(20, 5, 20, 5);
             LBL_RemoteIP.Name = "LBL_RemoteIP";
-            LBL_RemoteIP.Size = new Size(261, 29);
+            LBL_RemoteIP.Size = new Size(218, 29);
             LBL_RemoteIP.TabIndex = 0;
             LBL_RemoteIP.Text = "Remote-IP: 0.0.0.0";
             LBL_RemoteIP.TextAlign = ContentAlignment.MiddleCenter;
@@ -123,7 +123,7 @@
             LBL_LocalIP.Location = new Point(20, 54);
             LBL_LocalIP.Margin = new Padding(20, 5, 20, 5);
             LBL_LocalIP.Name = "LBL_LocalIP";
-            LBL_LocalIP.Size = new Size(261, 29);
+            LBL_LocalIP.Size = new Size(218, 29);
             LBL_LocalIP.TabIndex = 0;
             LBL_LocalIP.Text = "Local-IP: 0.0.0.0";
             LBL_LocalIP.TextAlign = ContentAlignment.MiddleCenter;
@@ -136,7 +136,7 @@
             LBL_CpuUsage.Location = new Point(20, 112);
             LBL_CpuUsage.Margin = new Padding(20, 5, 20, 5);
             LBL_CpuUsage.Name = "LBL_CpuUsage";
-            LBL_CpuUsage.Size = new Size(230, 29);
+            LBL_CpuUsage.Size = new Size(155, 29);
             LBL_CpuUsage.TabIndex = 0;
             LBL_CpuUsage.Text = "CPU usage: 0%";
             LBL_CpuUsage.TextAlign = ContentAlignment.MiddleCenter;
@@ -149,7 +149,7 @@
             LBL_RamUsage.Location = new Point(20, 73);
             LBL_RamUsage.Margin = new Padding(20, 5, 20, 5);
             LBL_RamUsage.Name = "LBL_RamUsage";
-            LBL_RamUsage.Size = new Size(230, 29);
+            LBL_RamUsage.Size = new Size(155, 29);
             LBL_RamUsage.TabIndex = 0;
             LBL_RamUsage.Text = "RAM usage: 0%";
             LBL_RamUsage.TextAlign = ContentAlignment.MiddleCenter;
@@ -170,13 +170,13 @@
             GBX_HardwareStats.FillColor = Color.FromArgb(49, 52, 58);
             GBX_HardwareStats.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GBX_HardwareStats.ForeColor = Color.FromArgb(219, 219, 219);
-            GBX_HardwareStats.Location = new Point(403, 60);
+            GBX_HardwareStats.Location = new Point(397, 60);
             GBX_HardwareStats.Margin = new Padding(10);
             GBX_HardwareStats.Name = "GBX_HardwareStats";
             GBX_HardwareStats.ShadowDecoration.CustomizableEdges = customizableEdges4;
             GBX_HardwareStats.ShadowDecoration.Depth = 10;
             GBX_HardwareStats.ShadowDecoration.Shadow = new Padding(6);
-            GBX_HardwareStats.Size = new Size(270, 215);
+            GBX_HardwareStats.Size = new Size(195, 215);
             GBX_HardwareStats.TabIndex = 0;
             GBX_HardwareStats.Text = "Hardware";
             GBX_HardwareStats.TextAlign = HorizontalAlignment.Center;
@@ -209,8 +209,6 @@
         private Label LBL_Ping;
         private Label LBL_ServerUptime;
         private Guna.UI2.WinForms.Guna2GroupBox GBX_HardwareStats;
-        private Label label1;
-        private Label label2;
         private Label label3;
         private Label LBL_RamUsage;
         private Label LBL_CpuUsage;

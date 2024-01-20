@@ -34,6 +34,7 @@
             TAC_Main = new Guna.UI2.WinForms.Guna2TabControl();
             TAP_ServerConsole = new TabPage();
             TAP_ServerStats = new TabPage();
+            TAP_Players = new TabPage();
             TAC_Main.SuspendLayout();
             SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             // 
             TAC_Main.Alignment = TabAlignment.Left;
             TAC_Main.Controls.Add(TAP_ServerConsole);
+            TAC_Main.Controls.Add(TAP_Players);
             TAC_Main.Controls.Add(TAP_ServerStats);
             TransitionMaster.SetDecoration(TAC_Main, Guna.UI2.AnimatorNS.DecorationType.None);
             TAC_Main.Dock = DockStyle.Fill;
@@ -113,6 +115,16 @@
             TAP_ServerStats.TabIndex = 1;
             TAP_ServerStats.Text = "Stats";
             // 
+            // TAP_Players
+            // 
+            TransitionMaster.SetDecoration(TAP_Players, Guna.UI2.AnimatorNS.DecorationType.None);
+            TAP_Players.Location = new Point(184, 4);
+            TAP_Players.Name = "TAP_Players";
+            TAP_Players.Size = new Size(709, 462);
+            TAP_Players.TabIndex = 2;
+            TAP_Players.Text = "Players";
+            TAP_Players.UseVisualStyleBackColor = true;
+            // 
             // FRM_Console
             // 
             AutoScaleDimensions = new SizeF(9F, 22F);
@@ -125,10 +137,10 @@
             ForeColor = Color.FromArgb(219, 219, 219);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
-            MinimumSize = new Size(837, 474);
+            MinimumSize = new Size(870, 477);
             Name = "FRM_Console";
             SizeGripStyle = SizeGripStyle.Hide;
-            Text = "Minecraft Server Console";
+            Text = "Advanced Minecraft Server Console";
             FormClosing += FRM_Console_FormClosing;
             TAC_Main.ResumeLayout(false);
             ResumeLayout(false);
@@ -140,5 +152,6 @@
         private Guna.UI2.WinForms.Guna2TabControl TAC_Main;
         private TabPage TAP_ServerConsole;
         private TabPage TAP_ServerStats;
+        private TabPage TAP_Players;
     }
 }

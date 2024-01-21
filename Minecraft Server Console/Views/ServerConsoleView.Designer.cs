@@ -307,10 +307,10 @@
             VSB_ConsoleLog.BindingContainer = TBX_ConsoleLog;
             VSB_ConsoleLog.BorderRadius = 5;
             VSB_ConsoleLog.FillColor = Color.FromArgb(49, 52, 58);
-            VSB_ConsoleLog.HighlightOnWheel = true;
             VSB_ConsoleLog.InUpdate = false;
             VSB_ConsoleLog.LargeChange = 10;
             VSB_ConsoleLog.Location = new Point(817, 74);
+            VSB_ConsoleLog.MouseWheelBarPartitions = 1;
             VSB_ConsoleLog.Name = "VSB_ConsoleLog";
             VSB_ConsoleLog.ScrollbarSize = 10;
             VSB_ConsoleLog.Size = new Size(10, 324);
@@ -324,7 +324,6 @@
             HSB_ConsoleLog.BindingContainer = TBX_ConsoleLog;
             HSB_ConsoleLog.BorderRadius = 5;
             HSB_ConsoleLog.FillColor = Color.FromArgb(49, 52, 58);
-            HSB_ConsoleLog.HighlightOnWheel = true;
             HSB_ConsoleLog.InUpdate = false;
             HSB_ConsoleLog.LargeChange = 10;
             HSB_ConsoleLog.Location = new Point(10, 388);

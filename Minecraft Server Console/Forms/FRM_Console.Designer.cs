@@ -33,8 +33,8 @@
             TransitionMaster = new Guna.UI2.WinForms.Guna2Transition();
             TAC_Main = new Guna.UI2.WinForms.Guna2TabControl();
             TAP_ServerConsole = new TabPage();
-            TAP_ServerStats = new TabPage();
             TAP_Players = new TabPage();
+            TAP_ServerStats = new TabPage();
             TAC_Main.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,6 +104,16 @@
             TAP_ServerConsole.TabIndex = 0;
             TAP_ServerConsole.Text = "Console";
             // 
+            // TAP_Players
+            // 
+            TAP_Players.BackColor = Color.FromArgb(35, 37, 41);
+            TransitionMaster.SetDecoration(TAP_Players, Guna.UI2.AnimatorNS.DecorationType.None);
+            TAP_Players.Location = new Point(184, 4);
+            TAP_Players.Name = "TAP_Players";
+            TAP_Players.Size = new Size(709, 462);
+            TAP_Players.TabIndex = 2;
+            TAP_Players.Text = "Players";
+            // 
             // TAP_ServerStats
             // 
             TAP_ServerStats.BackColor = Color.FromArgb(35, 37, 41);
@@ -114,16 +124,6 @@
             TAP_ServerStats.Size = new Size(709, 462);
             TAP_ServerStats.TabIndex = 1;
             TAP_ServerStats.Text = "Stats";
-            // 
-            // TAP_Players
-            // 
-            TransitionMaster.SetDecoration(TAP_Players, Guna.UI2.AnimatorNS.DecorationType.None);
-            TAP_Players.Location = new Point(184, 4);
-            TAP_Players.Name = "TAP_Players";
-            TAP_Players.Size = new Size(709, 462);
-            TAP_Players.TabIndex = 2;
-            TAP_Players.Text = "Players";
-            TAP_Players.UseVisualStyleBackColor = true;
             // 
             // FRM_Console
             // 

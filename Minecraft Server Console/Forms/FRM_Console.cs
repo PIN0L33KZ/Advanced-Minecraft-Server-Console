@@ -96,7 +96,7 @@ namespace Minecraft_Server_Console
             _serverStatsView.BringToFront();
             _serverStatsView.Hide();
         }
-        
+
         private void AddPlayersView()
         {
             _playersView = new PlayersView() { Dock = DockStyle.Fill };

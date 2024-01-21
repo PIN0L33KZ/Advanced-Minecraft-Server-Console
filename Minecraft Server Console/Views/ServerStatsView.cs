@@ -9,18 +9,19 @@ namespace Minecraft_Server_Console.Views
     {
         private string _remoteIpAddress;
         private DateTime _serverStart;
+        private bool _cancelTask = false;
 
         public ServerStatsView()
         {
             InitializeComponent();
-            ServerConsoleView.ServerStarted += ServerStartedHandler;
+            ServerConsoleView.ServerStarted += OnServerStarted;
+            ServerConsoleView.ServerStopped += OnServerStopped;
         }
 
         private void ServerStatsView_Load(object sender, EventArgs e)
         {
             Task updateIps = Task.Run(new Action(UpdateIps));
             Task updatePing = Task.Run(new Action(UpdatePing));
-            Task updateUptime = Task.Run(new Action(UpdateServerUptime));
             Task updateRamUsage = Task.Run(new Action(UpdateRam));
             Task updateCpuUsage = Task.Run(new Action(UpdateCpu));
         }
@@ -57,7 +58,7 @@ namespace Minecraft_Server_Console.Views
 
         private async void UpdateServerUptime()
         {
-            while(true)
+            while(_cancelTask == false)
             {
                 DateTime startTime = _serverStart;
 
@@ -173,9 +174,15 @@ namespace Minecraft_Server_Console.Views
             _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + hiddenRemoteIpAddress; }));
         }
 
-        private void ServerStartedHandler(object sender, ServerEventArgs e)
+        private void OnServerStarted(object sender, ServerEventArgs e)
         {
+            Task _updateServerUptime = Task.Run(new Action(UpdateServerUptime));
             _serverStart = e.StartTime;
+        }
+
+        private void OnServerStopped(object sender, ServerEventArgs e)
+        {
+            _cancelTask = true;
         }
 
         private void LBL_LocalIP_Click(object sender, EventArgs e)

@@ -5,6 +5,9 @@ namespace Minecraft_Server_Console.Views
     public partial class ServerConsoleView : UserControl
     {
         public static event EventHandler<ServerEventArgs> ServerStarted;
+        public static event EventHandler<ServerEventArgs> ServerStopped;
+        public static event EventHandler<ServerEventArgs> PlayerJoined;
+        public static event EventHandler<ServerEventArgs> PlayerLefted;
         private Process? _serverProcess;
 
         public ServerConsoleView()
@@ -14,6 +17,9 @@ namespace Minecraft_Server_Console.Views
             TBX_Command.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
+            PlayerDisplayView.PlayerKicked += OnPlayerKicked;
+            PlayerDisplayView.PlayerBanned += OnPlayerBanned;
+            PlayerDisplayView.PlayerGrantedOp += OnPlayerGrantedOp;
         }
 
         private async void BTN_StartServer_Click(object sender, EventArgs e)
@@ -84,6 +90,67 @@ namespace Minecraft_Server_Console.Views
             ServerStarted?.Invoke(null, new ServerEventArgs(startTime));
         }
 
+        protected static void OnServerStopped()
+        {
+            ServerStarted?.Invoke(null, new ServerEventArgs());
+        }
+
+        protected static void OnPlayerJoined(string playerName)
+        {
+            PlayerJoined?.Invoke(null, new ServerEventArgs(playerName));
+        }
+
+        protected static void OnPlayerLefted(string playerName)
+        {
+            PlayerLefted?.Invoke(null, new ServerEventArgs(playerName));
+        }
+
+        private void OnPlayerKicked(object sender, ServerEventArgs e)
+        {
+            if(MessageBox.Show($"Do you wish to kick {e.PlayerName}?", "Kick player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            FRM_AddReasonDialog reasonDialog = new() { Owner = FindForm() };
+            if(reasonDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            _serverProcess.StandardInput.WriteLine($"kick {e.PlayerName} {reasonDialog.reason}" + Environment.NewLine);
+
+            reasonDialog.Dispose();
+        }
+
+        private void OnPlayerBanned(object sender, ServerEventArgs e)
+        {
+            if(MessageBox.Show($"Do you wish to ban {e.PlayerName}?", "Ban player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            FRM_AddReasonDialog reasonDialog = new() { Owner = FindForm() };
+            if(reasonDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            _serverProcess.StandardInput.WriteLine($"ban {e.PlayerName} {reasonDialog.reason}" + Environment.NewLine);
+
+            reasonDialog.Dispose();
+        }
+
+        private void OnPlayerGrantedOp(object sender, ServerEventArgs e)
+        {
+            if(MessageBox.Show($"Do you wish to grant all privilages to {e.PlayerName}?", "Op player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            _serverProcess.StandardInput.WriteLine($"op {e.PlayerName}" + Environment.NewLine);
+        }
+
         private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             if(string.IsNullOrEmpty(e.Data))
@@ -108,6 +175,16 @@ namespace Minecraft_Server_Console.Views
                         OnServerStarted(DateTime.Now);
                         goto default;
 
+                    case var s when e.Data.Contains("joined the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):
+                        string[] tmpJoinMessage = e.Data.Split(' ');
+                        OnPlayerJoined(tmpJoinMessage[2]);
+                        goto default;
+
+                    case var s when e.Data.Contains("left the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):
+                        string[] tmpLeftMessage = e.Data.Split(' ');
+                        OnPlayerLefted(tmpLeftMessage[2]);
+                        goto default;
+
                     case var s when e.Data.Contains("INFO]: CONSOLE: Reload complete.") && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         BTN_StopServer.Enabled = true;
                         BTN_ReloadServer.Enabled = true;
@@ -115,11 +192,12 @@ namespace Minecraft_Server_Console.Views
                         ProgressIndicator.Hide();
                         goto default;
 
-                    case var s when e.Data.Contains("INFO]: Stopping the server") && !e.Data.Contains('<') && !e.Data.Contains('>'):
+                    case var s when(e.Data.Contains("INFO]: Stopping the server") || e.Data.Contains("INFO]: Stopping server")) && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         BTN_StopServer.Enabled = false;
                         BTN_ReloadServer.Enabled = false;
                         PNL_SendCommandArea.Enabled = false;
                         ProgressIndicator.Show();
+                        OnServerStopped();
                         goto default;
 
                     #region Syntax highlighting
@@ -190,9 +268,6 @@ namespace Minecraft_Server_Console.Views
                 return;
             }
 
-            ProgressIndicator.Show();
-            BTN_StopServer.Enabled = false;
-            BTN_ReloadServer.Enabled = false;
             _serverProcess.StandardInput.WriteLine("stop" + Environment.NewLine);
         }
 
@@ -212,6 +287,8 @@ namespace Minecraft_Server_Console.Views
 
         private void BTN_SendCommand_Click(object sender, EventArgs e)
         {
+            TBX_Command.Text = TBX_Command.Text.Trim();
+
             if(TBX_Command.TextLength == 0)
             {
                 return;
@@ -270,16 +347,6 @@ namespace Minecraft_Server_Console.Views
             Process[] processes = Process.GetProcessesByName(processName);
 
             return processes;
-        }
-    }
-
-    public class ServerEventArgs : EventArgs
-    {
-        public DateTime StartTime { get; }
-
-        public ServerEventArgs(DateTime startTime)
-        {
-            StartTime = startTime;
         }
     }
 }

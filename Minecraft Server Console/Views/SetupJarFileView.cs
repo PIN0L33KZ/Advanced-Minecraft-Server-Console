@@ -1,4 +1,5 @@
 ﻿using Minecraft_Server_Console.Classes.JSON;
+using Minecraft_Server_Console.Forms;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Net;
@@ -49,7 +50,9 @@ namespace Minecraft_Server_Console.Views
                 }
                 catch(Exception ex)
                 {
-                    _ = MessageBox.Show("Unable to update Serverversions.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    FRM_DialogBox dialogBox = new("Error", "Unable to update Serverversions.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                    _ = dialogBox.ShowDialog();
+                    dialogBox.Dispose();
                 }
             }
             #endregion
@@ -80,7 +83,9 @@ namespace Minecraft_Server_Console.Views
             }
             catch(Exception ex)
             {
-                _ = MessageBox.Show("Unable to update Servertypes.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FRM_DialogBox dialogBox = new("Error", "Unable to update Servertypes.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                _ = dialogBox.ShowDialog();
+                dialogBox.Dispose();
             }
             #endregion
         }
@@ -105,7 +110,9 @@ namespace Minecraft_Server_Console.Views
             }
             catch(Exception ex)
             {
-                _ = MessageBox.Show("Unable to download your Java file.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FRM_DialogBox dialogBox = new("Error", "Unable to download your Java file.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                _ = dialogBox.ShowDialog();
+                dialogBox.Dispose();
             }
         }
 

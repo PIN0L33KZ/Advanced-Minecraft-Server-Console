@@ -121,6 +121,7 @@
             KeyPreview = true;
             Margin = new Padding(4);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FRM_AddReasonDialog";
             Text = "Reason";
             Load += FRM_AddReasonDialog_Load;

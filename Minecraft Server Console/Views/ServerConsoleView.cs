@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Minecraft_Server_Console.Forms;
+using System.Diagnostics;
 
 namespace Minecraft_Server_Console.Views
 {
@@ -107,10 +108,12 @@ namespace Minecraft_Server_Console.Views
 
         private void OnPlayerKicked(object sender, ServerEventArgs e)
         {
-            if(MessageBox.Show($"Do you wish to kick {e.PlayerName}?", "Kick player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            FRM_DialogBox dialogBox = new("Kick player", $"Do you wish to kick {e.PlayerName}?", DialogBoxButtons.YesNo, DialogIcons.Question) { Owner = FindForm() };
+            if(dialogBox.ShowDialog() != DialogResult.Yes)
             {
                 return;
             }
+            dialogBox.Dispose();
 
             FRM_AddReasonDialog reasonDialog = new() { Owner = FindForm() };
             if(reasonDialog.ShowDialog() != DialogResult.OK)
@@ -125,10 +128,12 @@ namespace Minecraft_Server_Console.Views
 
         private void OnPlayerBanned(object sender, ServerEventArgs e)
         {
-            if(MessageBox.Show($"Do you wish to ban {e.PlayerName}?", "Ban player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            FRM_DialogBox dialogBox = new("Ban player", $"Do you wish to ban {e.PlayerName}?", DialogBoxButtons.YesNo, DialogIcons.Question) { Owner = FindForm() };
+            if(dialogBox.ShowDialog() != DialogResult.Yes)
             {
                 return;
             }
+            dialogBox.Dispose();
 
             FRM_AddReasonDialog reasonDialog = new() { Owner = FindForm() };
             if(reasonDialog.ShowDialog() != DialogResult.OK)
@@ -143,10 +148,12 @@ namespace Minecraft_Server_Console.Views
 
         private void OnPlayerGrantedOp(object sender, ServerEventArgs e)
         {
-            if(MessageBox.Show($"Do you wish to grant all privilages to {e.PlayerName}?", "Op player", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            FRM_DialogBox dialogBox = new("Op player", $"Do you wish to grant all privilages to {e.PlayerName}?", DialogBoxButtons.YesNo, DialogIcons.Question) { Owner = FindForm() };
+            if(dialogBox.ShowDialog() != DialogResult.Yes)
             {
                 return;
             }
+            dialogBox.Dispose();
 
             _serverProcess.StandardInput.WriteLine($"op {e.PlayerName}" + Environment.NewLine);
         }
@@ -263,20 +270,24 @@ namespace Minecraft_Server_Console.Views
 
         private void BTN_StopServer_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Do you wish to shutdown the server?", "Stop server", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            FRM_DialogBox dialogBox = new("Stop server", "Do you wish to shutdown the server? Your Minecraft Server is no longer reachable!", DialogBoxButtons.YesNo, DialogIcons.Question) { Owner = FindForm() };
+            if(dialogBox.ShowDialog() != DialogResult.Yes)
             {
                 return;
             }
+            dialogBox.Dispose();
 
             _serverProcess.StandardInput.WriteLine("stop" + Environment.NewLine);
         }
 
         private void BTN_ReloadServer_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Do you wish reload the server?", "Reload server", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            FRM_DialogBox dialogBox = new("Reload server", "Do you wish to reload the server? Your server may be unresponsive for a view moments.", DialogBoxButtons.YesNo, DialogIcons.Question) { Owner = FindForm() };
+            if(dialogBox.ShowDialog() != DialogResult.Yes)
             {
                 return;
             }
+            dialogBox.Dispose();
 
             ProgressIndicator.Show();
             PNL_SendCommandArea.Enabled = false;
@@ -337,7 +348,9 @@ namespace Minecraft_Server_Console.Views
             _serverProcess.StandardInput.WriteLine("stop");
             await _serverProcess.WaitForExitAsync();
 
-            _ = MessageBox.Show("Unhandled Exception! Your Server was stopped gracefully.\n" + exception.Message, "Unhandled exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            FRM_DialogBox dialogBox = new("Unhandled exception", "Unhandled Exception! Your Server was stopped gracefully.\n" + exception.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+            _ = dialogBox.ShowDialog();
+            dialogBox.Dispose();
         }
 
         private static Process[] GetServerProcess()

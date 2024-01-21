@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Minecraft_Server_Console.Forms;
+using System.Diagnostics;
 using System.Management;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -102,7 +103,7 @@ namespace Minecraft_Server_Console.Views
             return new IPAddress(0x0000000f);
         }
 
-        private static string GetRemoteIPAsync()
+        private string GetRemoteIPAsync()
         {
             using WebClient webClient = new();
             try
@@ -111,7 +112,9 @@ namespace Minecraft_Server_Console.Views
             }
             catch(Exception ex)
             {
-                _ = MessageBox.Show("Unable to fetch remote ip. You may be offline?\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FRM_DialogBox dialogBox = new("Error", "Unable to fetch remote ip. You may be offline?\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                _ = dialogBox.ShowDialog();
+                dialogBox.Dispose();
                 return "";
             }
         }

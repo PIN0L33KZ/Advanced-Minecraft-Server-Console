@@ -37,7 +37,9 @@ namespace Minecraft_Server_Console
             }
             catch(Exception ex)
             {
-                _ = MessageBox.Show("Unable to check if Java files exists.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FRM_DialogBox dialogBox = new("Error", "Unable to check if Java files exists.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                _ = dialogBox.ShowDialog();
+                dialogBox.Dispose();
             }
         }
 
@@ -62,7 +64,9 @@ namespace Minecraft_Server_Console
             }
 
             e.Cancel = true;
-            _ = MessageBox.Show("Please shutdown your server befor exiting!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            FRM_DialogBox dialogBox = new("Warning", "Please shutdown your server befor exiting!", DialogBoxButtons.OK, DialogIcons.Warning) { Owner = FindForm() };
+            _ = dialogBox.ShowDialog();
+            dialogBox.Dispose();
         }
 
         #region Add view to window

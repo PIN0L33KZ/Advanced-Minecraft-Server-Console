@@ -37,16 +37,22 @@
             BTN_One = new Guna.UI2.WinForms.Guna2Button();
             BTN_Two = new Guna.UI2.WinForms.Guna2Button();
             LBL_Message = new Label();
+            PNL_Content = new Panel();
+            PNL_Buttons = new Panel();
+            PNL_Icon = new Panel();
             ((System.ComponentModel.ISupportInitialize)PBX_Icon).BeginInit();
+            PNL_Content.SuspendLayout();
+            PNL_Buttons.SuspendLayout();
+            PNL_Icon.SuspendLayout();
             SuspendLayout();
             // 
             // PBX_Icon
             // 
-            PBX_Icon.Anchor = AnchorStyles.Left;
-            PBX_Icon.Location = new Point(12, 43);
+            PBX_Icon.Dock = DockStyle.Fill;
+            PBX_Icon.Location = new Point(0, 0);
             PBX_Icon.Name = "PBX_Icon";
-            PBX_Icon.Size = new Size(50, 50);
-            PBX_Icon.SizeMode = PictureBoxSizeMode.StretchImage;
+            PBX_Icon.Size = new Size(50, 114);
+            PBX_Icon.SizeMode = PictureBoxSizeMode.AutoSize;
             PBX_Icon.TabIndex = 0;
             PBX_Icon.TabStop = false;
             // 
@@ -67,7 +73,7 @@
             BTN_One.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BTN_One.ForeColor = Color.White;
             BTN_One.HoverState.BorderColor = Color.White;
-            BTN_One.Location = new Point(316, 137);
+            BTN_One.Location = new Point(163, 23);
             BTN_One.Margin = new Padding(10);
             BTN_One.Name = "BTN_One";
             BTN_One.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -93,7 +99,7 @@
             BTN_Two.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             BTN_Two.ForeColor = Color.White;
             BTN_Two.HoverState.BorderColor = Color.White;
-            BTN_Two.Location = new Point(206, 137);
+            BTN_Two.Location = new Point(53, 23);
             BTN_Two.Margin = new Padding(10);
             BTN_Two.Name = "BTN_Two";
             BTN_Two.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -104,13 +110,46 @@
             // 
             // LBL_Message
             // 
-            LBL_Message.AutoEllipsis = true;
-            LBL_Message.Location = new Point(75, 19);
+            LBL_Message.AutoSize = true;
+            LBL_Message.Dock = DockStyle.Fill;
+            LBL_Message.Location = new Point(10, 10);
             LBL_Message.Margin = new Padding(10);
             LBL_Message.Name = "LBL_Message";
-            LBL_Message.Size = new Size(331, 98);
+            LBL_Message.Size = new Size(70, 22);
             LBL_Message.TabIndex = 3;
+            LBL_Message.Text = "message";
             LBL_Message.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // PNL_Content
+            // 
+            PNL_Content.AutoSize = true;
+            PNL_Content.Controls.Add(LBL_Message);
+            PNL_Content.Dock = DockStyle.Fill;
+            PNL_Content.Location = new Point(60, 10);
+            PNL_Content.Name = "PNL_Content";
+            PNL_Content.Padding = new Padding(10);
+            PNL_Content.Size = new Size(260, 45);
+            PNL_Content.TabIndex = 4;
+            // 
+            // PNL_Buttons
+            // 
+            PNL_Buttons.Controls.Add(BTN_Two);
+            PNL_Buttons.Controls.Add(BTN_One);
+            PNL_Buttons.Dock = DockStyle.Bottom;
+            PNL_Buttons.Location = new Point(60, 55);
+            PNL_Buttons.Name = "PNL_Buttons";
+            PNL_Buttons.Size = new Size(260, 69);
+            PNL_Buttons.TabIndex = 5;
+            // 
+            // PNL_Icon
+            // 
+            PNL_Icon.AutoSize = true;
+            PNL_Icon.Controls.Add(PBX_Icon);
+            PNL_Icon.Dock = DockStyle.Left;
+            PNL_Icon.Location = new Point(10, 10);
+            PNL_Icon.Name = "PNL_Icon";
+            PNL_Icon.Size = new Size(50, 114);
+            PNL_Icon.TabIndex = 6;
             // 
             // FRM_DialogBox
             // 
@@ -119,11 +158,10 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(35, 37, 41);
-            ClientSize = new Size(425, 192);
-            Controls.Add(LBL_Message);
-            Controls.Add(BTN_Two);
-            Controls.Add(BTN_One);
-            Controls.Add(PBX_Icon);
+            ClientSize = new Size(330, 134);
+            Controls.Add(PNL_Content);
+            Controls.Add(PNL_Buttons);
+            Controls.Add(PNL_Icon);
             Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(219, 219, 219);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -132,11 +170,19 @@
             Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
+            MinimumSize = new Size(346, 173);
             Name = "FRM_DialogBox";
+            Padding = new Padding(10);
             Load += FRM_DialogBox_Load;
             KeyDown += FRM_DialogBox_KeyDown;
             ((System.ComponentModel.ISupportInitialize)PBX_Icon).EndInit();
+            PNL_Content.ResumeLayout(false);
+            PNL_Content.PerformLayout();
+            PNL_Buttons.ResumeLayout(false);
+            PNL_Icon.ResumeLayout(false);
+            PNL_Icon.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -145,5 +191,8 @@
         private Guna.UI2.WinForms.Guna2Button BTN_One;
         private Guna.UI2.WinForms.Guna2Button BTN_Two;
         private Label LBL_Message;
+        private Panel PNL_Content;
+        private Panel PNL_Buttons;
+        private Panel PNL_Icon;
     }
 }

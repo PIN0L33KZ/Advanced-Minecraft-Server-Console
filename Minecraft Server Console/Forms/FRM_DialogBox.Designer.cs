@@ -70,7 +70,7 @@
             BTN_One.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_One.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_One.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_One.Font = new Font("Microsoft YaHei UI", 11.25F);
+            BTN_One.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Bold);
             BTN_One.ForeColor = Color.White;
             BTN_One.HoverState.BorderColor = Color.White;
             BTN_One.Location = new Point(163, 23);
@@ -96,7 +96,7 @@
             BTN_Two.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_Two.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_Two.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_Two.Font = new Font("Microsoft YaHei UI", 11.25F);
+            BTN_Two.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Bold);
             BTN_Two.ForeColor = Color.White;
             BTN_Two.HoverState.BorderColor = Color.White;
             BTN_Two.Location = new Point(53, 23);

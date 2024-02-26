@@ -89,7 +89,7 @@
             BTN_SendCommand.HoverState.BorderColor = Color.White;
             BTN_SendCommand.ImageAlign = HorizontalAlignment.Left;
             BTN_SendCommand.ImageSize = new Size(22, 22);
-            BTN_SendCommand.Location = new Point(730, 12);
+            BTN_SendCommand.Location = new Point(730, 13);
             BTN_SendCommand.Margin = new Padding(10);
             BTN_SendCommand.Name = "BTN_SendCommand";
             BTN_SendCommand.ShadowDecoration.CustomizableEdges = customizableEdges2;

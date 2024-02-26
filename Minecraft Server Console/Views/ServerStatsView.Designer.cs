@@ -33,6 +33,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             GBX_NetworkStats = new Guna.UI2.WinForms.Guna2GroupBox();
             LBL_ServerUptime = new Label();
             LBL_Ping = new Label();
@@ -42,8 +44,11 @@
             LBL_CpuUsage = new Label();
             LBL_RamUsage = new Label();
             GBX_HardwareStats = new Guna.UI2.WinForms.Guna2GroupBox();
+            GPB_GameStats = new Guna.UI2.WinForms.Guna2GroupBox();
+            LBL_GameVersion = new Label();
             GBX_NetworkStats.SuspendLayout();
             GBX_HardwareStats.SuspendLayout();
+            GPB_GameStats.SuspendLayout();
             SuspendLayout();
             // 
             // GBX_NetworkStats
@@ -60,9 +65,9 @@
             GBX_NetworkStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
             GBX_NetworkStats.CustomizableEdges = customizableEdges1;
             GBX_NetworkStats.FillColor = Color.FromArgb(49, 52, 58);
-            GBX_NetworkStats.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GBX_NetworkStats.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GBX_NetworkStats.ForeColor = Color.FromArgb(219, 219, 219);
-            GBX_NetworkStats.Location = new Point(119, 60);
+            GBX_NetworkStats.Location = new Point(28, 60);
             GBX_NetworkStats.Margin = new Padding(10);
             GBX_NetworkStats.Name = "GBX_NetworkStats";
             GBX_NetworkStats.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -76,7 +81,7 @@
             // 
             // LBL_ServerUptime
             // 
-            LBL_ServerUptime.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_ServerUptime.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_ServerUptime.Location = new Point(20, 171);
             LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
             LBL_ServerUptime.Name = "LBL_ServerUptime";
@@ -89,7 +94,7 @@
             // 
             // LBL_Ping
             // 
-            LBL_Ping.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_Ping.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_Ping.Location = new Point(20, 132);
             LBL_Ping.Margin = new Padding(20, 5, 20, 5);
             LBL_Ping.Name = "LBL_Ping";
@@ -103,7 +108,7 @@
             // LBL_RemoteIP
             // 
             LBL_RemoteIP.Cursor = Cursors.Hand;
-            LBL_RemoteIP.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_RemoteIP.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_RemoteIP.Location = new Point(20, 93);
             LBL_RemoteIP.Margin = new Padding(20, 5, 20, 5);
             LBL_RemoteIP.Name = "LBL_RemoteIP";
@@ -119,7 +124,7 @@
             // LBL_LocalIP
             // 
             LBL_LocalIP.Cursor = Cursors.Hand;
-            LBL_LocalIP.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_LocalIP.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_LocalIP.Location = new Point(20, 54);
             LBL_LocalIP.Margin = new Padding(20, 5, 20, 5);
             LBL_LocalIP.Name = "LBL_LocalIP";
@@ -132,7 +137,7 @@
             // 
             // LBL_CpuUsage
             // 
-            LBL_CpuUsage.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_CpuUsage.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_CpuUsage.Location = new Point(20, 112);
             LBL_CpuUsage.Margin = new Padding(20, 5, 20, 5);
             LBL_CpuUsage.Name = "LBL_CpuUsage";
@@ -145,7 +150,7 @@
             // 
             // LBL_RamUsage
             // 
-            LBL_RamUsage.Font = new Font("Nunito Sans Normal", 11.25F);
+            LBL_RamUsage.Font = new Font("Microsoft YaHei UI", 11.25F);
             LBL_RamUsage.Location = new Point(20, 73);
             LBL_RamUsage.Margin = new Padding(20, 5, 20, 5);
             LBL_RamUsage.Name = "LBL_RamUsage";
@@ -168,9 +173,9 @@
             GBX_HardwareStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
             GBX_HardwareStats.CustomizableEdges = customizableEdges3;
             GBX_HardwareStats.FillColor = Color.FromArgb(49, 52, 58);
-            GBX_HardwareStats.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GBX_HardwareStats.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold);
             GBX_HardwareStats.ForeColor = Color.FromArgb(219, 219, 219);
-            GBX_HardwareStats.Location = new Point(397, 60);
+            GBX_HardwareStats.Location = new Point(306, 60);
             GBX_HardwareStats.Margin = new Padding(10);
             GBX_HardwareStats.Name = "GBX_HardwareStats";
             GBX_HardwareStats.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -182,11 +187,50 @@
             GBX_HardwareStats.TextAlign = HorizontalAlignment.Center;
             GBX_HardwareStats.UseTransparentBackground = true;
             // 
+            // GPB_GameStats
+            // 
+            GPB_GameStats.Anchor = AnchorStyles.None;
+            GPB_GameStats.BackColor = Color.Transparent;
+            GPB_GameStats.BorderColor = Color.FromArgb(64, 67, 75);
+            GPB_GameStats.BorderRadius = 5;
+            GPB_GameStats.BorderThickness = 2;
+            GPB_GameStats.Controls.Add(LBL_GameVersion);
+            GPB_GameStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
+            GPB_GameStats.CustomizableEdges = customizableEdges5;
+            GPB_GameStats.FillColor = Color.FromArgb(49, 52, 58);
+            GPB_GameStats.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold);
+            GPB_GameStats.ForeColor = Color.FromArgb(219, 219, 219);
+            GPB_GameStats.Location = new Point(521, 60);
+            GPB_GameStats.Margin = new Padding(10);
+            GPB_GameStats.Name = "GPB_GameStats";
+            GPB_GameStats.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            GPB_GameStats.ShadowDecoration.Depth = 10;
+            GPB_GameStats.ShadowDecoration.Shadow = new Padding(6);
+            GPB_GameStats.Size = new Size(195, 215);
+            GPB_GameStats.TabIndex = 0;
+            GPB_GameStats.Text = "Game";
+            GPB_GameStats.TextAlign = HorizontalAlignment.Center;
+            GPB_GameStats.UseTransparentBackground = true;
+            // 
+            // LBL_GameVersion
+            // 
+            LBL_GameVersion.AutoEllipsis = true;
+            LBL_GameVersion.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_GameVersion.Location = new Point(10, 45);
+            LBL_GameVersion.Margin = new Padding(20, 5, 20, 5);
+            LBL_GameVersion.Name = "LBL_GameVersion";
+            LBL_GameVersion.Size = new Size(175, 144);
+            LBL_GameVersion.TabIndex = 0;
+            LBL_GameVersion.Text = "No infos.";
+            LBL_GameVersion.TextAlign = ContentAlignment.MiddleCenter;
+            LBL_GameVersion.Click += LBL_LocalIP_Click;
+            // 
             // ServerStatsView
             // 
             AutoScaleDimensions = new SizeF(9F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 37, 41);
+            Controls.Add(GPB_GameStats);
             Controls.Add(GBX_HardwareStats);
             Controls.Add(GBX_NetworkStats);
             Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -197,6 +241,7 @@
             Load += ServerStatsView_Load;
             GBX_NetworkStats.ResumeLayout(false);
             GBX_HardwareStats.ResumeLayout(false);
+            GPB_GameStats.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -212,5 +257,7 @@
         private Label label3;
         private Label LBL_RamUsage;
         private Label LBL_CpuUsage;
+        private Guna.UI2.WinForms.Guna2GroupBox GPB_GameStats;
+        private Label LBL_GameVersion;
     }
 }

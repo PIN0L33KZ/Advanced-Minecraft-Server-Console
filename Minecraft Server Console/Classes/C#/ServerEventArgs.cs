@@ -3,6 +3,7 @@
     public class ServerEventArgs : EventArgs
     {
         public DateTime StartTime { get; }
+        public string GameVersion { get; }
         public string PlayerName { get; }
         public string Reason { get; }
 
@@ -11,9 +12,10 @@
 
         }
 
-        public ServerEventArgs(DateTime startTime)
+        public ServerEventArgs(DateTime startTime, string gameVersion)
         {
             StartTime = startTime;
+            GameVersion = gameVersion;
         }
 
         public ServerEventArgs(string playerName)

@@ -70,7 +70,7 @@
             BTN_One.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_One.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_One.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_One.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_One.Font = new Font("Microsoft YaHei UI", 11.25F);
             BTN_One.ForeColor = Color.White;
             BTN_One.HoverState.BorderColor = Color.White;
             BTN_One.Location = new Point(163, 23);
@@ -96,7 +96,7 @@
             BTN_Two.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_Two.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_Two.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_Two.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_Two.Font = new Font("Microsoft YaHei UI", 11.25F);
             BTN_Two.ForeColor = Color.White;
             BTN_Two.HoverState.BorderColor = Color.White;
             BTN_Two.Location = new Point(53, 23);
@@ -112,10 +112,11 @@
             // 
             LBL_Message.AutoSize = true;
             LBL_Message.Dock = DockStyle.Fill;
+            LBL_Message.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LBL_Message.Location = new Point(10, 10);
             LBL_Message.Margin = new Padding(10);
             LBL_Message.Name = "LBL_Message";
-            LBL_Message.Size = new Size(70, 22);
+            LBL_Message.Size = new Size(73, 20);
             LBL_Message.TabIndex = 3;
             LBL_Message.Text = "message";
             LBL_Message.TextAlign = ContentAlignment.MiddleLeft;

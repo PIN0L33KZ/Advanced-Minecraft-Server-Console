@@ -84,16 +84,16 @@
             BTN_SendCommand.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_SendCommand.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_SendCommand.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_SendCommand.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_SendCommand.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTN_SendCommand.ForeColor = Color.White;
             BTN_SendCommand.HoverState.BorderColor = Color.White;
             BTN_SendCommand.ImageAlign = HorizontalAlignment.Left;
             BTN_SendCommand.ImageSize = new Size(22, 22);
-            BTN_SendCommand.Location = new Point(744, 12);
+            BTN_SendCommand.Location = new Point(730, 12);
             BTN_SendCommand.Margin = new Padding(10);
             BTN_SendCommand.Name = "BTN_SendCommand";
             BTN_SendCommand.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            BTN_SendCommand.Size = new Size(83, 36);
+            BTN_SendCommand.Size = new Size(97, 36);
             BTN_SendCommand.TabIndex = 4;
             BTN_SendCommand.Text = "Send";
             ToolTip.SetToolTip(BTN_SendCommand, "Send command to server");
@@ -116,17 +116,17 @@
             TBX_Command.DisabledState.PlaceholderForeColor = Color.DarkGray;
             TBX_Command.FillColor = Color.FromArgb(49, 52, 58);
             TBX_Command.FocusedState.BorderColor = Color.FromArgb(37, 93, 213);
-            TBX_Command.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBX_Command.Font = new Font("Microsoft YaHei UI", 11.25F);
             TBX_Command.ForeColor = Color.FromArgb(219, 219, 219);
-            TBX_Command.Location = new Point(10, 12);
-            TBX_Command.Margin = new Padding(13, 15, 13, 15);
+            TBX_Command.Location = new Point(17, 12);
+            TBX_Command.Margin = new Padding(17, 20, 17, 20);
             TBX_Command.Name = "TBX_Command";
             TBX_Command.PasswordChar = '\0';
             TBX_Command.PlaceholderForeColor = Color.FromArgb(110, 110, 110);
             TBX_Command.PlaceholderText = "Enter server or game command here";
             TBX_Command.SelectedText = "";
             TBX_Command.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            TBX_Command.Size = new Size(727, 36);
+            TBX_Command.Size = new Size(700, 38);
             TBX_Command.TabIndex = 0;
             ToolTip.SetToolTip(TBX_Command, "Input your Minecraft command here");
             TBX_Command.WordWrap = false;
@@ -196,7 +196,7 @@
             BTN_ReloadServer.ShadowDecoration.CustomizableEdges = customizableEdges8;
             BTN_ReloadServer.Size = new Size(40, 40);
             BTN_ReloadServer.TabIndex = 1;
-            ToolTip.SetToolTip(BTN_ReloadServer, "Restart server");
+            ToolTip.SetToolTip(BTN_ReloadServer, "Reload server");
             BTN_ReloadServer.Click += BTN_ReloadServer_Click;
             // 
             // BTN_StopServer
@@ -266,7 +266,7 @@
             BTN_AgreeToEula.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_AgreeToEula.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_AgreeToEula.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_AgreeToEula.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_AgreeToEula.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTN_AgreeToEula.ForeColor = Color.White;
             BTN_AgreeToEula.HoverState.BorderColor = Color.White;
             BTN_AgreeToEula.Image = Properties.Resources.agree_eula;
@@ -276,7 +276,7 @@
             BTN_AgreeToEula.Margin = new Padding(5, 10, 5, 10);
             BTN_AgreeToEula.Name = "BTN_AgreeToEula";
             BTN_AgreeToEula.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            BTN_AgreeToEula.Size = new Size(157, 40);
+            BTN_AgreeToEula.Size = new Size(161, 40);
             BTN_AgreeToEula.TabIndex = 3;
             BTN_AgreeToEula.Text = "Agree to EULA";
             BTN_AgreeToEula.TextAlign = HorizontalAlignment.Right;
@@ -289,7 +289,7 @@
             TBX_ConsoleLog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TBX_ConsoleLog.BackColor = Color.FromArgb(49, 52, 58);
             TBX_ConsoleLog.BorderStyle = BorderStyle.None;
-            TBX_ConsoleLog.Font = new Font("Nunito Sans Normal", 9.749998F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBX_ConsoleLog.Font = new Font("Microsoft YaHei UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TBX_ConsoleLog.ForeColor = Color.DarkGray;
             TBX_ConsoleLog.Location = new Point(10, 74);
             TBX_ConsoleLog.Margin = new Padding(10);
@@ -309,11 +309,11 @@
             VSB_ConsoleLog.FillColor = Color.FromArgb(49, 52, 58);
             VSB_ConsoleLog.InUpdate = false;
             VSB_ConsoleLog.LargeChange = 10;
-            VSB_ConsoleLog.Location = new Point(817, 74);
+            VSB_ConsoleLog.Location = new Point(809, 74);
             VSB_ConsoleLog.MouseWheelBarPartitions = 1;
             VSB_ConsoleLog.Name = "VSB_ConsoleLog";
-            VSB_ConsoleLog.ScrollbarSize = 10;
-            VSB_ConsoleLog.Size = new Size(10, 324);
+            VSB_ConsoleLog.ScrollbarSize = 18;
+            VSB_ConsoleLog.Size = new Size(18, 324);
             VSB_ConsoleLog.TabIndex = 6;
             VSB_ConsoleLog.ThumbColor = Color.FromArgb(64, 67, 75);
             VSB_ConsoleLog.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
@@ -326,11 +326,11 @@
             HSB_ConsoleLog.FillColor = Color.FromArgb(49, 52, 58);
             HSB_ConsoleLog.InUpdate = false;
             HSB_ConsoleLog.LargeChange = 10;
-            HSB_ConsoleLog.Location = new Point(10, 388);
+            HSB_ConsoleLog.Location = new Point(10, 380);
             HSB_ConsoleLog.MouseWheelBarPartitions = 1;
             HSB_ConsoleLog.Name = "HSB_ConsoleLog";
-            HSB_ConsoleLog.ScrollbarSize = 10;
-            HSB_ConsoleLog.Size = new Size(817, 10);
+            HSB_ConsoleLog.ScrollbarSize = 18;
+            HSB_ConsoleLog.Size = new Size(817, 18);
             HSB_ConsoleLog.TabIndex = 5;
             HSB_ConsoleLog.ThumbColor = Color.FromArgb(64, 67, 75);
             HSB_ConsoleLog.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;

@@ -67,6 +67,7 @@
             TAC_Main.Controls.Add(TAP_ServerStats);
             TransitionMaster.SetDecoration(TAC_Main, Guna.UI2.AnimatorNS.DecorationType.None);
             TAC_Main.Dock = DockStyle.Fill;
+            TAC_Main.Font = new Font("Microsoft YaHei UI", 11.25F);
             TAC_Main.ItemSize = new Size(180, 40);
             TAC_Main.Location = new Point(0, 0);
             TAC_Main.Name = "TAC_Main";
@@ -74,17 +75,17 @@
             TAC_Main.Size = new Size(897, 470);
             TAC_Main.TabButtonHoverState.BorderColor = Color.Empty;
             TAC_Main.TabButtonHoverState.FillColor = Color.FromArgb(64, 67, 75);
-            TAC_Main.TabButtonHoverState.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TAC_Main.TabButtonHoverState.Font = new Font("Microsoft YaHei UI", 11.25F);
             TAC_Main.TabButtonHoverState.ForeColor = Color.FromArgb(219, 219, 219);
             TAC_Main.TabButtonHoverState.InnerColor = Color.Empty;
             TAC_Main.TabButtonIdleState.BorderColor = Color.Empty;
             TAC_Main.TabButtonIdleState.FillColor = Color.FromArgb(49, 52, 58);
-            TAC_Main.TabButtonIdleState.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TAC_Main.TabButtonIdleState.Font = new Font("Microsoft YaHei UI", 11.25F);
             TAC_Main.TabButtonIdleState.ForeColor = Color.FromArgb(182, 182, 182);
             TAC_Main.TabButtonIdleState.InnerColor = Color.Empty;
             TAC_Main.TabButtonSelectedState.BorderColor = Color.Empty;
             TAC_Main.TabButtonSelectedState.FillColor = Color.FromArgb(49, 52, 58);
-            TAC_Main.TabButtonSelectedState.Font = new Font("Nunito Sans Normal", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TAC_Main.TabButtonSelectedState.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TAC_Main.TabButtonSelectedState.ForeColor = Color.White;
             TAC_Main.TabButtonSelectedState.InnerColor = Color.FromArgb(37, 93, 213);
             TAC_Main.TabButtonSize = new Size(180, 40);

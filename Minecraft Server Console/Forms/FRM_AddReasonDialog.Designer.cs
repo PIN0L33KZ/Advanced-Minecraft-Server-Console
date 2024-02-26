@@ -41,10 +41,11 @@
             // LBL_ReasonTitle
             // 
             LBL_ReasonTitle.AutoSize = true;
-            LBL_ReasonTitle.Location = new Point(14, 14);
+            LBL_ReasonTitle.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_ReasonTitle.Location = new Point(14, 16);
             LBL_ReasonTitle.Margin = new Padding(5);
             LBL_ReasonTitle.Name = "LBL_ReasonTitle";
-            LBL_ReasonTitle.Size = new Size(88, 22);
+            LBL_ReasonTitle.Size = new Size(93, 20);
             LBL_ReasonTitle.TabIndex = 0;
             LBL_ReasonTitle.Text = "Add reason";
             // 
@@ -65,17 +66,17 @@
             TBX_Reason.DisabledState.PlaceholderForeColor = Color.DarkGray;
             TBX_Reason.FillColor = Color.FromArgb(49, 52, 58);
             TBX_Reason.FocusedState.BorderColor = Color.FromArgb(37, 93, 213);
-            TBX_Reason.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TBX_Reason.Font = new Font("Microsoft YaHei UI", 11.25F);
             TBX_Reason.ForeColor = Color.FromArgb(219, 219, 219);
-            TBX_Reason.Location = new Point(14, 46);
-            TBX_Reason.Margin = new Padding(5);
+            TBX_Reason.Location = new Point(15, 48);
+            TBX_Reason.Margin = new Padding(6, 7, 6, 7);
             TBX_Reason.Name = "TBX_Reason";
             TBX_Reason.PasswordChar = '\0';
             TBX_Reason.PlaceholderForeColor = Color.FromArgb(110, 110, 110);
             TBX_Reason.PlaceholderText = "Enter your reason here.";
             TBX_Reason.SelectedText = "";
             TBX_Reason.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            TBX_Reason.Size = new Size(370, 36);
+            TBX_Reason.Size = new Size(368, 35);
             TBX_Reason.TabIndex = 1;
             TBX_Reason.WordWrap = false;
             // 
@@ -93,14 +94,14 @@
             BTN_Continue.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_Continue.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_Continue.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_Continue.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_Continue.Font = new Font("Microsoft YaHei UI", 11.25F);
             BTN_Continue.ForeColor = Color.White;
             BTN_Continue.HoverState.BorderColor = Color.White;
-            BTN_Continue.Location = new Point(158, 95);
+            BTN_Continue.Location = new Point(151, 95);
             BTN_Continue.Margin = new Padding(5);
             BTN_Continue.Name = "BTN_Continue";
             BTN_Continue.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            BTN_Continue.Size = new Size(90, 36);
+            BTN_Continue.Size = new Size(97, 36);
             BTN_Continue.TabIndex = 2;
             BTN_Continue.Text = "Continue";
             BTN_Continue.Click += BTN_Continue_Click;

@@ -10,6 +10,7 @@ namespace Minecraft_Server_Console.Views
         public static event EventHandler<ServerEventArgs> PlayerJoined;
         public static event EventHandler<ServerEventArgs> PlayerLefted;
         private Process? _serverProcess;
+        private string _gameVersion;
 
         public ServerConsoleView()
         {
@@ -86,9 +87,9 @@ namespace Minecraft_Server_Console.Views
             _serverProcess.Close();
         }
 
-        protected static void OnServerStarted(DateTime startTime)
+        protected static void OnServerStarted(DateTime startTime, string gameVersion)
         {
-            ServerStarted?.Invoke(null, new ServerEventArgs(startTime));
+            ServerStarted?.Invoke(null, new ServerEventArgs(startTime, gameVersion));
         }
 
         protected static void OnServerStopped()
@@ -170,8 +171,14 @@ namespace Minecraft_Server_Console.Views
             {
                 switch(e.Data)
                 {
+
                     case var s when e.Data.Contains("You need to agree to the EULA"):
                         BTN_AgreeToEula.Show();
+                        goto default;
+
+                    case var s when e.Data.Contains("INFO]: Starting minecraft server version"):
+                        string[] tmpVersionMessage = e.Data.Split(' ');
+                        _gameVersion = tmpVersionMessage[^1];
                         goto default;
 
                     case var s when e.Data.Contains("INFO]: Done ") && !e.Data.Contains('<') && !e.Data.Contains('>'):
@@ -179,7 +186,7 @@ namespace Minecraft_Server_Console.Views
                         BTN_ReloadServer.Enabled = true;
                         PNL_SendCommandArea.Enabled = true;
                         ProgressIndicator.Hide();
-                        OnServerStarted(DateTime.Now);
+                        OnServerStarted(DateTime.Now, _gameVersion);
                         goto default;
 
                     case var s when e.Data.Contains("joined the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):

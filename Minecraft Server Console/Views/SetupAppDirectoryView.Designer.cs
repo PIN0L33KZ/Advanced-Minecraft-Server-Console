@@ -39,11 +39,11 @@
             // 
             LBL_ViewHeading.Anchor = AnchorStyles.Top;
             LBL_ViewHeading.AutoSize = true;
-            LBL_ViewHeading.Font = new Font("Nunito Sans Normal", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LBL_ViewHeading.Location = new Point(49, 10);
+            LBL_ViewHeading.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LBL_ViewHeading.Location = new Point(29, 10);
             LBL_ViewHeading.Margin = new Padding(10);
             LBL_ViewHeading.Name = "LBL_ViewHeading";
-            LBL_ViewHeading.Size = new Size(407, 27);
+            LBL_ViewHeading.Size = new Size(447, 26);
             LBL_ViewHeading.TabIndex = 0;
             LBL_ViewHeading.Text = "Please select a directory to store your files in.";
             // 
@@ -52,6 +52,7 @@
             LBL_SelectedDirectory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             LBL_SelectedDirectory.BackColor = Color.FromArgb(49, 52, 58);
             LBL_SelectedDirectory.Cursor = Cursors.Hand;
+            LBL_SelectedDirectory.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LBL_SelectedDirectory.Location = new Point(10, 57);
             LBL_SelectedDirectory.Margin = new Padding(10);
             LBL_SelectedDirectory.Name = "LBL_SelectedDirectory";
@@ -75,14 +76,14 @@
             BTN_Continue.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BTN_Continue.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BTN_Continue.FillColor = Color.FromArgb(37, 93, 213);
-            BTN_Continue.Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BTN_Continue.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BTN_Continue.ForeColor = Color.White;
             BTN_Continue.HoverState.BorderColor = Color.White;
-            BTN_Continue.Location = new Point(404, 124);
+            BTN_Continue.Location = new Point(393, 124);
             BTN_Continue.Margin = new Padding(10);
             BTN_Continue.Name = "BTN_Continue";
             BTN_Continue.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            BTN_Continue.Size = new Size(90, 30);
+            BTN_Continue.Size = new Size(101, 30);
             BTN_Continue.TabIndex = 1;
             BTN_Continue.Text = "Continue";
             BTN_Continue.Click += BTN_Continue_Click;

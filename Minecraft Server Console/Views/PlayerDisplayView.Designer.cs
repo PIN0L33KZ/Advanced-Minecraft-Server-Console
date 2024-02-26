@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             PNL_Background = new Guna.UI2.WinForms.Guna2ShadowPanel();
             BTN_OpPlayer = new Guna.UI2.WinForms.Guna2Button();
             BTN_BanPlayer = new Guna.UI2.WinForms.Guna2Button();
@@ -75,7 +75,7 @@
             BTN_OpPlayer.BorderRadius = 2;
             BTN_OpPlayer.BorderThickness = 2;
             BTN_OpPlayer.Cursor = Cursors.Hand;
-            BTN_OpPlayer.CustomizableEdges = customizableEdges1;
+            BTN_OpPlayer.CustomizableEdges = customizableEdges7;
             BTN_OpPlayer.DisabledState.BorderColor = Color.DarkGray;
             BTN_OpPlayer.DisabledState.CustomBorderColor = Color.DarkGray;
             BTN_OpPlayer.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -89,7 +89,7 @@
             BTN_OpPlayer.Location = new Point(110, 56);
             BTN_OpPlayer.Margin = new Padding(5, 10, 5, 10);
             BTN_OpPlayer.Name = "BTN_OpPlayer";
-            BTN_OpPlayer.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            BTN_OpPlayer.ShadowDecoration.CustomizableEdges = customizableEdges8;
             BTN_OpPlayer.Size = new Size(35, 35);
             BTN_OpPlayer.TabIndex = 3;
             ToolTip.SetToolTip(BTN_OpPlayer, "Make player an operator.");
@@ -102,7 +102,7 @@
             BTN_BanPlayer.BorderRadius = 2;
             BTN_BanPlayer.BorderThickness = 2;
             BTN_BanPlayer.Cursor = Cursors.Hand;
-            BTN_BanPlayer.CustomizableEdges = customizableEdges3;
+            BTN_BanPlayer.CustomizableEdges = customizableEdges9;
             BTN_BanPlayer.DisabledState.BorderColor = Color.DarkGray;
             BTN_BanPlayer.DisabledState.CustomBorderColor = Color.DarkGray;
             BTN_BanPlayer.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -116,7 +116,7 @@
             BTN_BanPlayer.Location = new Point(155, 56);
             BTN_BanPlayer.Margin = new Padding(5, 10, 5, 10);
             BTN_BanPlayer.Name = "BTN_BanPlayer";
-            BTN_BanPlayer.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            BTN_BanPlayer.ShadowDecoration.CustomizableEdges = customizableEdges10;
             BTN_BanPlayer.Size = new Size(35, 35);
             BTN_BanPlayer.TabIndex = 3;
             ToolTip.SetToolTip(BTN_BanPlayer, "Ban player.");
@@ -129,7 +129,7 @@
             BTN_KickPlayer.BorderRadius = 2;
             BTN_KickPlayer.BorderThickness = 2;
             BTN_KickPlayer.Cursor = Cursors.Hand;
-            BTN_KickPlayer.CustomizableEdges = customizableEdges5;
+            BTN_KickPlayer.CustomizableEdges = customizableEdges11;
             BTN_KickPlayer.DisabledState.BorderColor = Color.DarkGray;
             BTN_KickPlayer.DisabledState.CustomBorderColor = Color.DarkGray;
             BTN_KickPlayer.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -143,7 +143,7 @@
             BTN_KickPlayer.Location = new Point(200, 56);
             BTN_KickPlayer.Margin = new Padding(5, 10, 5, 10);
             BTN_KickPlayer.Name = "BTN_KickPlayer";
-            BTN_KickPlayer.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            BTN_KickPlayer.ShadowDecoration.CustomizableEdges = customizableEdges12;
             BTN_KickPlayer.Size = new Size(35, 35);
             BTN_KickPlayer.TabIndex = 3;
             ToolTip.SetToolTip(BTN_KickPlayer, "Kick player.");
@@ -151,7 +151,8 @@
             // 
             // LBL_PlayerName
             // 
-            LBL_PlayerName.Font = new Font("Nunito Sans Normal", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LBL_PlayerName.AutoEllipsis = true;
+            LBL_PlayerName.Font = new Font("Microsoft YaHei UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBL_PlayerName.Location = new Point(88, 15);
             LBL_PlayerName.Name = "LBL_PlayerName";
             LBL_PlayerName.Size = new Size(166, 31);

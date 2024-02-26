@@ -66,6 +66,7 @@ namespace Minecraft_Server_Console.Views
                 if(startTime == new DateTime())
                 {
                     _ = BeginInvoke(new Action(() => { LBL_ServerUptime.Text = "Uptime: not started yet."; }));
+                    _ = BeginInvoke(new Action(() => { LBL_GameVersion.Text = "No infos."; }));
 
                     await Task.Delay(1000);
                     continue;
@@ -181,6 +182,7 @@ namespace Minecraft_Server_Console.Views
         {
             Task _updateServerUptime = Task.Run(new Action(UpdateServerUptime));
             _serverStart = e.StartTime;
+            LBL_GameVersion.Text = $"Game version: " + e.GameVersion;
         }
 
         private void OnServerStopped(object sender, ServerEventArgs e)

@@ -223,7 +223,7 @@
             LBL_ServerPort.Name = "LBL_ServerPort";
             LBL_ServerPort.Size = new Size(155, 68);
             LBL_ServerPort.TabIndex = 0;
-            LBL_ServerPort.Text = "No infos.";
+            LBL_ServerPort.Text = "Binding: Server not running.";
             LBL_ServerPort.TextAlign = ContentAlignment.MiddleCenter;
             LBL_ServerPort.Click += LBL_LocalIP_Click;
             // 
@@ -236,7 +236,7 @@
             LBL_GameVersion.Name = "LBL_GameVersion";
             LBL_GameVersion.Size = new Size(155, 68);
             LBL_GameVersion.TabIndex = 0;
-            LBL_GameVersion.Text = "No infos.";
+            LBL_GameVersion.Text = "Version: Server not running.";
             LBL_GameVersion.TextAlign = ContentAlignment.MiddleCenter;
             LBL_GameVersion.Click += LBL_LocalIP_Click;
             // 

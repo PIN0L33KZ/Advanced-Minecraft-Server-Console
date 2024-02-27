@@ -93,7 +93,7 @@
             LBL_NoPlayerWarning.Name = "LBL_NoPlayerWarning";
             LBL_NoPlayerWarning.Size = new Size(206, 39);
             LBL_NoPlayerWarning.TabIndex = 8;
-            LBL_NoPlayerWarning.Text = "No players yet.";
+            LBL_NoPlayerWarning.Text = "No players are currently online.";
             // 
             // PlayersView
             // 

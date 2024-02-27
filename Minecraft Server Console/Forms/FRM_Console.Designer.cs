@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation3 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Console));
             TransitionMaster = new Guna.UI2.WinForms.Guna2Transition();
             TAC_Main = new Guna.UI2.WinForms.Guna2TabControl();
@@ -42,22 +42,22 @@
             // 
             TransitionMaster.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Transparent;
             TransitionMaster.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = (PointF)resources.GetObject("animation1.BlindCoeff");
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = (PointF)resources.GetObject("animation1.MosaicCoeff");
-            animation1.MosaicShift = (PointF)resources.GetObject("animation1.MosaicShift");
-            animation1.MosaicSize = 0;
-            animation1.Padding = new Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = (PointF)resources.GetObject("animation1.ScaleCoeff");
-            animation1.SlideCoeff = (PointF)resources.GetObject("animation1.SlideCoeff");
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            TransitionMaster.DefaultAnimation = animation1;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = (PointF)resources.GetObject("animation3.BlindCoeff");
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = (PointF)resources.GetObject("animation3.MosaicCoeff");
+            animation3.MosaicShift = (PointF)resources.GetObject("animation3.MosaicShift");
+            animation3.MosaicSize = 0;
+            animation3.Padding = new Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = (PointF)resources.GetObject("animation3.ScaleCoeff");
+            animation3.SlideCoeff = (PointF)resources.GetObject("animation3.SlideCoeff");
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            TransitionMaster.DefaultAnimation = animation3;
             // 
             // TAC_Main
             // 
@@ -72,7 +72,7 @@
             TAC_Main.Location = new Point(0, 0);
             TAC_Main.Name = "TAC_Main";
             TAC_Main.SelectedIndex = 0;
-            TAC_Main.Size = new Size(897, 470);
+            TAC_Main.Size = new Size(1086, 557);
             TAC_Main.TabButtonHoverState.BorderColor = Color.Empty;
             TAC_Main.TabButtonHoverState.FillColor = Color.FromArgb(64, 67, 75);
             TAC_Main.TabButtonHoverState.Font = new Font("Microsoft YaHei UI", 11.25F);
@@ -101,7 +101,7 @@
             TAP_ServerConsole.Location = new Point(184, 4);
             TAP_ServerConsole.Name = "TAP_ServerConsole";
             TAP_ServerConsole.Padding = new Padding(3);
-            TAP_ServerConsole.Size = new Size(709, 462);
+            TAP_ServerConsole.Size = new Size(898, 549);
             TAP_ServerConsole.TabIndex = 0;
             TAP_ServerConsole.Text = "Console";
             // 
@@ -131,14 +131,14 @@
             AutoScaleDimensions = new SizeF(9F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 37, 41);
-            ClientSize = new Size(897, 470);
+            ClientSize = new Size(1086, 557);
             Controls.Add(TAC_Main);
             TransitionMaster.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(219, 219, 219);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
-            MinimumSize = new Size(870, 477);
+            MinimumSize = new Size(1028, 555);
             Name = "FRM_Console";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Advanced Minecraft Server Console";

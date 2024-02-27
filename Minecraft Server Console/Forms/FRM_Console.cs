@@ -64,7 +64,7 @@ namespace Minecraft_Server_Console
             }
 
             e.Cancel = true;
-            FRM_DialogBox dialogBox = new("Warning", "Please shutdown your server befor exiting!", DialogBoxButtons.OK, DialogIcons.Warning) { Owner = FindForm() };
+            FRM_DialogBox dialogBox = new("Warning", "Please shutdown your server before exiting!", DialogBoxButtons.OK, DialogIcons.Warning) { Owner = FindForm() };
             _ = dialogBox.ShowDialog();
             dialogBox.Dispose();
         }

@@ -11,6 +11,7 @@ namespace Minecraft_Server_Console.Views
         public static event EventHandler<ServerEventArgs> PlayerLefted;
         private Process? _serverProcess;
         private string _gameVersion;
+        private string _serverPort;
 
         public ServerConsoleView()
         {
@@ -87,9 +88,9 @@ namespace Minecraft_Server_Console.Views
             _serverProcess.Close();
         }
 
-        protected static void OnServerStarted(DateTime startTime, string gameVersion)
+        protected static void OnServerStarted(DateTime startTime, string gameVersion, string serverPort)
         {
-            ServerStarted?.Invoke(null, new ServerEventArgs(startTime, gameVersion));
+            ServerStarted?.Invoke(null, new ServerEventArgs(startTime, gameVersion, serverPort));
         }
 
         protected static void OnServerStopped()
@@ -180,13 +181,18 @@ namespace Minecraft_Server_Console.Views
                         string[] tmpVersionMessage = e.Data.Split(' ');
                         _gameVersion = tmpVersionMessage[^1];
                         goto default;
+                    
+                    case var s when e.Data.Contains("INFO]: Starting Minecraft server on"):
+                        string[] tmpPortMessage = e.Data.Split(' ');
+                        _serverPort = tmpPortMessage[^1];
+                        goto default;
 
                     case var s when e.Data.Contains("INFO]: Done ") && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         BTN_StopServer.Enabled = true;
                         BTN_ReloadServer.Enabled = true;
                         PNL_SendCommandArea.Enabled = true;
                         ProgressIndicator.Hide();
-                        OnServerStarted(DateTime.Now, _gameVersion);
+                        OnServerStarted(DateTime.Now, _gameVersion, _serverPort);
                         goto default;
 
                     case var s when e.Data.Contains("joined the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):

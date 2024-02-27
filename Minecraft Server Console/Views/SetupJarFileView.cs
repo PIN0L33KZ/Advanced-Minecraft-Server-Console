@@ -50,7 +50,7 @@ namespace Minecraft_Server_Console.Views
                 }
                 catch(Exception ex)
                 {
-                    FRM_DialogBox dialogBox = new("Error", "Unable to update Serverversions.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                    FRM_DialogBox dialogBox = new("Error", "Unable to update Versions.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
                     _ = dialogBox.ShowDialog();
                     dialogBox.Dispose();
                 }
@@ -83,7 +83,7 @@ namespace Minecraft_Server_Console.Views
             }
             catch(Exception ex)
             {
-                FRM_DialogBox dialogBox = new("Error", "Unable to update Servertypes.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
+                FRM_DialogBox dialogBox = new("Error", "Unable to update Types.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
                 _ = dialogBox.ShowDialog();
                 dialogBox.Dispose();
             }
@@ -96,14 +96,15 @@ namespace Minecraft_Server_Console.Views
             {
                 return;
             }
+            
+            TransitionMaster.Hide(BTN_Continue, true);
 
-            TransitionMaster.Show(PSB_DownloadProgress);
-            TransitionMaster.Show(LBL_DownloadProgress);
+            TransitionMaster.Show(PSB_DownloadProgress, true);
+            TransitionMaster.Show(LBL_DownloadProgress, true);
 
             using WebClient webClient = new();
             try
             {
-                TransitionMaster.Hide(BTN_Continue);
                 webClient.DownloadProgressChanged += WebClient_DownloadProgressChanged;
                 webClient.DownloadFileCompleted += WebClient_DownloadComplete;
                 webClient.DownloadFileAsync(new Uri($"https://serverjars.com/api/fetchJar/servers/{CBX_ServerType.SelectedItem}/{CBX_GameVersion.SelectedItem}"), Properties.Application.Default.ApplicationPath + @"\server.jar");

@@ -170,7 +170,7 @@ namespace Minecraft_Server_Console.Views
 
                     if(char.IsNumber(c))
                     {
-                        hiddenRemoteIpAddress += "X";
+                        hiddenRemoteIpAddress += "•";
                     }
                     else
                     {

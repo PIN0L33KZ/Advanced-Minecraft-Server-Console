@@ -59,8 +59,8 @@
             GBX_NetworkStats.BorderColor = Color.FromArgb(64, 67, 75);
             GBX_NetworkStats.BorderRadius = 5;
             GBX_NetworkStats.BorderThickness = 2;
-            GBX_NetworkStats.Controls.Add(LBL_ServerUptime);
             GBX_NetworkStats.Controls.Add(LBL_Ping);
+            GBX_NetworkStats.Controls.Add(LBL_ServerPort);
             GBX_NetworkStats.Controls.Add(LBL_RemoteIP);
             GBX_NetworkStats.Controls.Add(LBL_LocalIP);
             GBX_NetworkStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
@@ -83,10 +83,10 @@
             // LBL_ServerUptime
             // 
             LBL_ServerUptime.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_ServerUptime.Location = new Point(20, 171);
+            LBL_ServerUptime.Location = new Point(20, 132);
             LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
             LBL_ServerUptime.Name = "LBL_ServerUptime";
-            LBL_ServerUptime.Size = new Size(218, 29);
+            LBL_ServerUptime.Size = new Size(155, 68);
             LBL_ServerUptime.TabIndex = 0;
             LBL_ServerUptime.Text = "Uptime: not started yet.";
             LBL_ServerUptime.TextAlign = ContentAlignment.MiddleCenter;
@@ -195,7 +195,7 @@
             GPB_GameStats.BorderColor = Color.FromArgb(64, 67, 75);
             GPB_GameStats.BorderRadius = 5;
             GPB_GameStats.BorderThickness = 2;
-            GPB_GameStats.Controls.Add(LBL_ServerPort);
+            GPB_GameStats.Controls.Add(LBL_ServerUptime);
             GPB_GameStats.Controls.Add(LBL_GameVersion);
             GPB_GameStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
             GPB_GameStats.CustomizableEdges = customizableEdges5;
@@ -218,10 +218,10 @@
             // 
             LBL_ServerPort.AutoEllipsis = true;
             LBL_ServerPort.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_ServerPort.Location = new Point(20, 132);
+            LBL_ServerPort.Location = new Point(20, 171);
             LBL_ServerPort.Margin = new Padding(20, 5, 20, 5);
             LBL_ServerPort.Name = "LBL_ServerPort";
-            LBL_ServerPort.Size = new Size(155, 68);
+            LBL_ServerPort.Size = new Size(218, 29);
             LBL_ServerPort.TabIndex = 0;
             LBL_ServerPort.Text = "Binding: Server not running.";
             LBL_ServerPort.TextAlign = ContentAlignment.MiddleCenter;

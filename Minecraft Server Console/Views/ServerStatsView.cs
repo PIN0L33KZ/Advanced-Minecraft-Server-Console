@@ -184,7 +184,7 @@ namespace Minecraft_Server_Console.Views
             {
                 _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + ex.Message; }));
             }
-            
+
         }
 
         private void OnServerStarted(object sender, ServerEventArgs e)

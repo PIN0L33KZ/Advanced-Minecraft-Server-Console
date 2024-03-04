@@ -144,7 +144,7 @@
             PSB_DownloadProgress.ShowText = true;
             PSB_DownloadProgress.Size = new Size(628, 22);
             PSB_DownloadProgress.TabIndex = 4;
-            PSB_DownloadProgress.Text = "Downloading";
+            PSB_DownloadProgress.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
             PSB_DownloadProgress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             PSB_DownloadProgress.UseTransparentBackground = true;
             PSB_DownloadProgress.Visible = false;
@@ -289,14 +289,14 @@
             // 
             // SetupJarFileView
             // 
-            AutoScaleDimensions = new SizeF(9F, 22F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 37, 41);
             Controls.Add(PNL_CenterContent);
             Controls.Add(BTN_Continue);
             Controls.Add(LBL_ViewHeading);
             TransitionMaster.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
-            Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(219, 219, 219);
             Margin = new Padding(4);
             Name = "SetupJarFileView";

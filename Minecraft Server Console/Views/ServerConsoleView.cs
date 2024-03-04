@@ -181,7 +181,7 @@ namespace Minecraft_Server_Console.Views
                         string[] tmpVersionMessage = e.Data.Split(' ');
                         _gameVersion = tmpVersionMessage[^1];
                         goto default;
-                    
+
                     case var s when e.Data.Contains("INFO]: Starting Minecraft server on") && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         string[] tmpPortMessage = e.Data.Split(' ');
                         _serverPort = tmpPortMessage[^1];

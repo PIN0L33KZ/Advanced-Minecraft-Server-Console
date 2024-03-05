@@ -122,6 +122,7 @@ namespace Minecraft_Server_Console.Views
         private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             PSB_DownloadProgress.Value = e.ProgressPercentage;
+            PSB_DownloadProgress.Text = $"{Math.Round(e.BytesReceived / Math.Pow(1024, 2))}Mb / {Math.Round(e.TotalBytesToReceive / Math.Pow(1024, 2))}Mb ({e.ProgressPercentage}%)";
         }
 
         private void WebClient_DownloadComplete(object sender, AsyncCompletedEventArgs e)

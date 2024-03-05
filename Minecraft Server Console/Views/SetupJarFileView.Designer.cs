@@ -145,7 +145,7 @@
             PSB_DownloadProgress.ShowText = true;
             PSB_DownloadProgress.Size = new Size(628, 22);
             PSB_DownloadProgress.TabIndex = 4;
-            PSB_DownloadProgress.Text = "Downloading";
+            PSB_DownloadProgress.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
             PSB_DownloadProgress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             PSB_DownloadProgress.UseTransparentBackground = true;
             PSB_DownloadProgress.Visible = false;

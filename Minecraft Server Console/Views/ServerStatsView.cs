@@ -66,7 +66,8 @@ namespace Minecraft_Server_Console.Views
                 if(startTime == new DateTime())
                 {
                     _ = BeginInvoke(new Action(() => { LBL_ServerUptime.Text = "Uptime: not started yet."; }));
-                    _ = BeginInvoke(new Action(() => { LBL_GameVersion.Text = "No infos."; }));
+                    _ = BeginInvoke(new Action(() => { LBL_GameVersion.Text = "Version: Server not running."; }));
+                    _ = BeginInvoke(new Action(() => { LBL_ServerPort.Text = "Binding: Server not running."; }));
 
                     await Task.Delay(1000);
                     continue;
@@ -156,33 +157,42 @@ namespace Minecraft_Server_Console.Views
 
         private void HideRemoteIPAddress()
         {
-            string hiddenRemoteIpAddress = "";
-
-            foreach(char c in _remoteIpAddress)
+            try
             {
-                if(c == '.')
+                string hiddenRemoteIpAddress = "";
+
+                foreach(char c in _remoteIpAddress)
                 {
-                    continue;
+                    if(c == '.')
+                    {
+                        continue;
+                    }
+
+                    if(char.IsNumber(c))
+                    {
+                        hiddenRemoteIpAddress += "•";
+                    }
+                    else
+                    {
+                        hiddenRemoteIpAddress += c.ToString();
+                    }
                 }
 
-                if(char.IsNumber(c))
-                {
-                    hiddenRemoteIpAddress += "X";
-                }
-                else
-                {
-                    hiddenRemoteIpAddress += c.ToString();
-                }
+                _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + hiddenRemoteIpAddress; }));
+            }
+            catch(Exception ex)
+            {
+                _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + ex.Message; }));
             }
 
-            _ = LBL_RemoteIP.BeginInvoke(new Action(() => { LBL_RemoteIP.Text = "Remote-IP: " + hiddenRemoteIpAddress; }));
         }
 
         private void OnServerStarted(object sender, ServerEventArgs e)
         {
             Task _updateServerUptime = Task.Run(new Action(UpdateServerUptime));
             _serverStart = e.StartTime;
-            LBL_GameVersion.Text = $"Game version: " + e.GameVersion;
+            LBL_GameVersion.Text = $"Version: " + e.GameVersion;
+            LBL_ServerPort.Text = $"Binding: " + e.ServerPort;
         }
 
         private void OnServerStopped(object sender, ServerEventArgs e)

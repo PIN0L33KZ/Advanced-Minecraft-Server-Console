@@ -57,8 +57,8 @@
             VSB_PlayersList.Margin = new Padding(4);
             VSB_PlayersList.MouseWheelBarPartitions = 1;
             VSB_PlayersList.Name = "VSB_PlayersList";
-            VSB_PlayersList.ScrollbarSize = 10;
-            VSB_PlayersList.Size = new Size(10, 379);
+            VSB_PlayersList.ScrollbarSize = 18;
+            VSB_PlayersList.Size = new Size(18, 379);
             VSB_PlayersList.TabIndex = 7;
             VSB_PlayersList.ThumbColor = Color.FromArgb(64, 67, 75);
             VSB_PlayersList.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
@@ -70,15 +70,13 @@
             HSB_PlayerList.BorderRadius = 5;
             HSB_PlayerList.FillColor = Color.FromArgb(49, 52, 58);
             HSB_PlayerList.InUpdate = false;
-            HSB_PlayerList.LargeChange = 639;
+            HSB_PlayerList.LargeChange = 10;
             HSB_PlayerList.Location = new Point(0, 361);
             HSB_PlayerList.Margin = new Padding(4);
-            HSB_PlayerList.Maximum = 646;
             HSB_PlayerList.MouseWheelBarPartitions = 1;
             HSB_PlayerList.Name = "HSB_PlayerList";
-            HSB_PlayerList.ScrollbarSize = 10;
-            HSB_PlayerList.Size = new Size(639, 10);
-            HSB_PlayerList.SmallChange = 5;
+            HSB_PlayerList.ScrollbarSize = 18;
+            HSB_PlayerList.Size = new Size(639, 18);
             HSB_PlayerList.TabIndex = 6;
             HSB_PlayerList.ThumbColor = Color.FromArgb(64, 67, 75);
             HSB_PlayerList.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
@@ -89,11 +87,11 @@
             LBL_NoPlayerWarning.AutoSize = true;
             LBL_NoPlayerWarning.Font = new Font("Nunito Sans Normal", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LBL_NoPlayerWarning.ForeColor = Color.FromArgb(182, 182, 182);
-            LBL_NoPlayerWarning.Location = new Point(216, 170);
+            LBL_NoPlayerWarning.Location = new Point(111, 170);
             LBL_NoPlayerWarning.Name = "LBL_NoPlayerWarning";
-            LBL_NoPlayerWarning.Size = new Size(206, 39);
+            LBL_NoPlayerWarning.Size = new Size(416, 39);
             LBL_NoPlayerWarning.TabIndex = 8;
-            LBL_NoPlayerWarning.Text = "No players yet.";
+            LBL_NoPlayerWarning.Text = "No players are currently online.";
             // 
             // PlayersView
             // 

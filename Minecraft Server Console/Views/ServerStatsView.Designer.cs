@@ -45,6 +45,7 @@
             LBL_RamUsage = new Label();
             GBX_HardwareStats = new Guna.UI2.WinForms.Guna2GroupBox();
             GPB_GameStats = new Guna.UI2.WinForms.Guna2GroupBox();
+            LBL_ServerPort = new Label();
             LBL_GameVersion = new Label();
             GBX_NetworkStats.SuspendLayout();
             GBX_HardwareStats.SuspendLayout();
@@ -58,8 +59,8 @@
             GBX_NetworkStats.BorderColor = Color.FromArgb(64, 67, 75);
             GBX_NetworkStats.BorderRadius = 5;
             GBX_NetworkStats.BorderThickness = 2;
-            GBX_NetworkStats.Controls.Add(LBL_ServerUptime);
             GBX_NetworkStats.Controls.Add(LBL_Ping);
+            GBX_NetworkStats.Controls.Add(LBL_ServerPort);
             GBX_NetworkStats.Controls.Add(LBL_RemoteIP);
             GBX_NetworkStats.Controls.Add(LBL_LocalIP);
             GBX_NetworkStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
@@ -82,10 +83,10 @@
             // LBL_ServerUptime
             // 
             LBL_ServerUptime.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_ServerUptime.Location = new Point(20, 171);
+            LBL_ServerUptime.Location = new Point(20, 132);
             LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
             LBL_ServerUptime.Name = "LBL_ServerUptime";
-            LBL_ServerUptime.Size = new Size(218, 29);
+            LBL_ServerUptime.Size = new Size(155, 68);
             LBL_ServerUptime.TabIndex = 0;
             LBL_ServerUptime.Text = "Uptime: not started yet.";
             LBL_ServerUptime.TextAlign = ContentAlignment.MiddleCenter;
@@ -194,6 +195,7 @@
             GPB_GameStats.BorderColor = Color.FromArgb(64, 67, 75);
             GPB_GameStats.BorderRadius = 5;
             GPB_GameStats.BorderThickness = 2;
+            GPB_GameStats.Controls.Add(LBL_ServerUptime);
             GPB_GameStats.Controls.Add(LBL_GameVersion);
             GPB_GameStats.CustomBorderColor = Color.FromArgb(64, 67, 75);
             GPB_GameStats.CustomizableEdges = customizableEdges5;
@@ -212,16 +214,29 @@
             GPB_GameStats.TextAlign = HorizontalAlignment.Center;
             GPB_GameStats.UseTransparentBackground = true;
             // 
+            // LBL_ServerPort
+            // 
+            LBL_ServerPort.AutoEllipsis = true;
+            LBL_ServerPort.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_ServerPort.Location = new Point(20, 171);
+            LBL_ServerPort.Margin = new Padding(20, 5, 20, 5);
+            LBL_ServerPort.Name = "LBL_ServerPort";
+            LBL_ServerPort.Size = new Size(218, 29);
+            LBL_ServerPort.TabIndex = 0;
+            LBL_ServerPort.Text = "Binding: Server not running.";
+            LBL_ServerPort.TextAlign = ContentAlignment.MiddleCenter;
+            LBL_ServerPort.Click += LBL_LocalIP_Click;
+            // 
             // LBL_GameVersion
             // 
             LBL_GameVersion.AutoEllipsis = true;
             LBL_GameVersion.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_GameVersion.Location = new Point(10, 45);
+            LBL_GameVersion.Location = new Point(20, 54);
             LBL_GameVersion.Margin = new Padding(20, 5, 20, 5);
             LBL_GameVersion.Name = "LBL_GameVersion";
-            LBL_GameVersion.Size = new Size(175, 144);
+            LBL_GameVersion.Size = new Size(155, 68);
             LBL_GameVersion.TabIndex = 0;
-            LBL_GameVersion.Text = "No infos.";
+            LBL_GameVersion.Text = "Version: Server not running.";
             LBL_GameVersion.TextAlign = ContentAlignment.MiddleCenter;
             LBL_GameVersion.Click += LBL_LocalIP_Click;
             // 
@@ -259,5 +274,6 @@
         private Label LBL_CpuUsage;
         private Guna.UI2.WinForms.Guna2GroupBox GPB_GameStats;
         private Label LBL_GameVersion;
+        private Label LBL_ServerPort;
     }
 }

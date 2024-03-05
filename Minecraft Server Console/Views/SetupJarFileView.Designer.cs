@@ -91,6 +91,7 @@
             BTN_Continue.Size = new Size(107, 36);
             BTN_Continue.TabIndex = 1;
             BTN_Continue.Text = "Continue";
+            BTN_Continue.Visible = false;
             BTN_Continue.Click += BTN_Continue_Click;
             // 
             // LBL_GameVersion
@@ -222,6 +223,7 @@
             CBX_GameVersion.Size = new Size(140, 36);
             CBX_GameVersion.TabIndex = 1;
             CBX_GameVersion.Visible = false;
+            CBX_GameVersion.SelectedIndexChanged += CBX_GameVersion_SelectedIndexChanged;
             // 
             // LBL_DownloadProgress
             // 
@@ -289,14 +291,14 @@
             // 
             // SetupJarFileView
             // 
-            AutoScaleDimensions = new SizeF(9F, 22F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 37, 41);
             Controls.Add(PNL_CenterContent);
             Controls.Add(BTN_Continue);
             Controls.Add(LBL_ViewHeading);
             TransitionMaster.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
-            Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(219, 219, 219);
             Margin = new Padding(4);
             Name = "SetupJarFileView";

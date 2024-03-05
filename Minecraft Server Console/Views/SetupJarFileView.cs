@@ -67,6 +67,7 @@ namespace Minecraft_Server_Console.Views
             using WebClient webClient = new();
             try
             {
+                TransitionMaster.Show(ProgressIndicator);
                 string jsonString = await webClient.DownloadStringTaskAsync(@"https://serverjars.com/api/fetchTypes/");
 
                 _serverTypesApiResponse = JsonConvert.DeserializeObject<ServerTypesRoot>(jsonString);
@@ -86,6 +87,7 @@ namespace Minecraft_Server_Console.Views
                 FRM_DialogBox dialogBox = new("Error", "Unable to update Types.\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
                 _ = dialogBox.ShowDialog();
                 dialogBox.Dispose();
+                Application.Exit();
             }
             #endregion
         }
@@ -96,7 +98,7 @@ namespace Minecraft_Server_Console.Views
             {
                 return;
             }
-            
+
             TransitionMaster.Hide(BTN_Continue, true);
 
             TransitionMaster.Show(PSB_DownloadProgress, true);
@@ -125,6 +127,14 @@ namespace Minecraft_Server_Console.Views
         private void WebClient_DownloadComplete(object sender, AsyncCompletedEventArgs e)
         {
             ContinueButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void CBX_GameVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(CBX_GameVersion.SelectedIndex != -1)
+            {
+                TransitionMaster.Show(BTN_Continue);
+            }
         }
     }
 }

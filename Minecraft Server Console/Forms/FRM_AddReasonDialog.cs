@@ -36,6 +36,10 @@
         private void BTN_Continue_Click(object sender, EventArgs e)
         {
             reason = TBX_Reason.Text.Trim();
+
+            if(reason == "")
+                reason = "No details given!";
+
             DialogResult = DialogResult.OK;
             Close();
         }

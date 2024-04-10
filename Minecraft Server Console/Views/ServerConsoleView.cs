@@ -197,12 +197,12 @@ namespace Minecraft_Server_Console.Views
 
                     case var s when e.Data.Contains("joined the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         string[] tmpJoinMessage = e.Data.Split(' ');
-                        OnPlayerJoined(tmpJoinMessage[2]);
+                        OnPlayerJoined(tmpJoinMessage[3]);
                         goto default;
 
                     case var s when e.Data.Contains("left the game") && !e.Data.Contains('<') && !e.Data.Contains('>'):
                         string[] tmpLeftMessage = e.Data.Split(' ');
-                        OnPlayerLefted(tmpLeftMessage[2]);
+                        OnPlayerLefted(tmpLeftMessage[3]);
                         goto default;
 
                     case var s when e.Data.Contains("INFO]: CONSOLE: Reload complete.") && !e.Data.Contains('<') && !e.Data.Contains('>'):

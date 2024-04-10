@@ -134,7 +134,7 @@
             PSB_DownloadProgress.CustomizableEdges = customizableEdges3;
             TransitionMaster.SetDecoration(PSB_DownloadProgress, Guna.UI2.AnimatorNS.DecorationType.None);
             PSB_DownloadProgress.FillColor = Color.FromArgb(49, 52, 58);
-            PSB_DownloadProgress.Font = new Font("Microsoft YaHei UI", 11.25F);
+            PSB_DownloadProgress.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PSB_DownloadProgress.Location = new Point(10, 179);
             PSB_DownloadProgress.Margin = new Padding(10);
             PSB_DownloadProgress.Name = "PSB_DownloadProgress";
@@ -146,7 +146,6 @@
             PSB_DownloadProgress.Size = new Size(628, 22);
             PSB_DownloadProgress.TabIndex = 4;
             PSB_DownloadProgress.TextMode = Guna.UI2.WinForms.Enums.ProgressBarTextMode.Custom;
-            PSB_DownloadProgress.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             PSB_DownloadProgress.UseTransparentBackground = true;
             PSB_DownloadProgress.Visible = false;
             // 

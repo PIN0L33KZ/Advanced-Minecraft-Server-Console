@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             LBL_ViewHeading = new Label();
-            LBL_SelectedDirectory = new Label();
             BTN_Continue = new Guna.UI2.WinForms.Guna2Button();
+            ELP_Main = new Guna.UI2.WinForms.Guna2Elipse(components);
+            BTN_SelectDirectory = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // LBL_ViewHeading
@@ -46,21 +50,6 @@
             LBL_ViewHeading.Size = new Size(447, 26);
             LBL_ViewHeading.TabIndex = 0;
             LBL_ViewHeading.Text = "Please select a directory to store your files in.";
-            // 
-            // LBL_SelectedDirectory
-            // 
-            LBL_SelectedDirectory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            LBL_SelectedDirectory.BackColor = Color.FromArgb(49, 52, 58);
-            LBL_SelectedDirectory.Cursor = Cursors.Hand;
-            LBL_SelectedDirectory.Font = new Font("Microsoft YaHei UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LBL_SelectedDirectory.Location = new Point(10, 57);
-            LBL_SelectedDirectory.Margin = new Padding(10);
-            LBL_SelectedDirectory.Name = "LBL_SelectedDirectory";
-            LBL_SelectedDirectory.Size = new Size(484, 44);
-            LBL_SelectedDirectory.TabIndex = 0;
-            LBL_SelectedDirectory.Text = "Click here to choose a directory...";
-            LBL_SelectedDirectory.TextAlign = ContentAlignment.MiddleCenter;
-            LBL_SelectedDirectory.Click += LBL_SelectedDirectory_Click;
             // 
             // BTN_Continue
             // 
@@ -88,13 +77,44 @@
             BTN_Continue.Text = "Continue";
             BTN_Continue.Click += BTN_Continue_Click;
             // 
+            // ELP_Main
+            // 
+            ELP_Main.BorderRadius = 5;
+            // 
+            // BTN_SelectDirectory
+            // 
+            BTN_SelectDirectory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            BTN_SelectDirectory.Animated = true;
+            BTN_SelectDirectory.BorderColor = Color.Empty;
+            BTN_SelectDirectory.BorderRadius = 5;
+            BTN_SelectDirectory.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            BTN_SelectDirectory.BorderThickness = 2;
+            BTN_SelectDirectory.Cursor = Cursors.Hand;
+            BTN_SelectDirectory.CustomizableEdges = customizableEdges3;
+            BTN_SelectDirectory.DisabledState.BorderColor = Color.DarkGray;
+            BTN_SelectDirectory.DisabledState.CustomBorderColor = Color.DarkGray;
+            BTN_SelectDirectory.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            BTN_SelectDirectory.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            BTN_SelectDirectory.FillColor = Color.FromArgb(49, 52, 58);
+            BTN_SelectDirectory.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BTN_SelectDirectory.ForeColor = Color.FromArgb(219, 219, 219);
+            BTN_SelectDirectory.HoverState.BorderColor = Color.FromArgb(219, 219, 219);
+            BTN_SelectDirectory.Location = new Point(10, 57);
+            BTN_SelectDirectory.Margin = new Padding(10);
+            BTN_SelectDirectory.Name = "BTN_SelectDirectory";
+            BTN_SelectDirectory.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            BTN_SelectDirectory.Size = new Size(484, 44);
+            BTN_SelectDirectory.TabIndex = 2;
+            BTN_SelectDirectory.Text = "Click here to choose a directory...";
+            BTN_SelectDirectory.Click += BTN_SelectDirectory_Click;
+            // 
             // SetupAppDirectoryView
             // 
             AutoScaleDimensions = new SizeF(9F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(35, 37, 41);
+            Controls.Add(BTN_SelectDirectory);
             Controls.Add(BTN_Continue);
-            Controls.Add(LBL_SelectedDirectory);
             Controls.Add(LBL_ViewHeading);
             Font = new Font("Nunito Sans Normal", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(219, 219, 219);
@@ -108,7 +128,8 @@
         #endregion
 
         private Label LBL_ViewHeading;
-        private Label LBL_SelectedDirectory;
         private Guna.UI2.WinForms.Guna2Button BTN_Continue;
+        private Guna.UI2.WinForms.Guna2Elipse ELP_Main;
+        private Guna.UI2.WinForms.Guna2Button BTN_SelectDirectory;
     }
 }

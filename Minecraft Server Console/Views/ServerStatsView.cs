@@ -90,15 +90,20 @@ namespace Minecraft_Server_Console.Views
 
         private static IPAddress GetLocalIP()
         {
-            string hostname = Dns.GetHostName();
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
 
-            IPAddress[] localIps = Dns.GetHostAddresses(hostname);
-
-            foreach(IPAddress ip in localIps)
+            foreach(NetworkInterface iface in interfaces)
             {
-                if(ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                if(iface.NetworkInterfaceType == NetworkInterfaceType.Ethernet || iface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
                 {
-                    return ip;
+                    IPInterfaceProperties properties = iface.GetIPProperties();
+                    foreach(UnicastIPAddressInformation addr in properties.UnicastAddresses)
+                    {
+                        if(addr.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            return addr.Address;
+                        }
+                    }
                 }
             }
 

@@ -9,7 +9,7 @@
             InitializeComponent();
         }
 
-        private void LBL_SelectedDirectory_Click(object sender, EventArgs e)
+        private void BTN_SelectDirectory_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fBD = new();
 
@@ -18,7 +18,8 @@
                 return;
             }
 
-            LBL_SelectedDirectory.Text = "Select directory " + fBD.SelectedPath + " ?";
+            BTN_SelectDirectory.Text = "Select directory " + fBD.SelectedPath + "?";
+            BTN_SelectDirectory.Text = $"Select directory \"{fBD.SelectedPath}\"?";
             _appDirectory = fBD.SelectedPath;
         }
 

@@ -36,16 +36,17 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             GBX_NetworkStats = new Guna.UI2.WinForms.Guna2GroupBox();
-            LBL_ServerUptime = new Label();
             LBL_Ping = new Label();
+            LBL_DefaultGateway = new Label();
+            LBL_ServerPort = new Label();
             LBL_RemoteIP = new Label();
             LBL_LocalIP = new Label();
+            LBL_ServerUptime = new Label();
             ToolTip = new ToolTip(components);
             LBL_CpuUsage = new Label();
             LBL_RamUsage = new Label();
             GBX_HardwareStats = new Guna.UI2.WinForms.Guna2GroupBox();
             GPB_GameStats = new Guna.UI2.WinForms.Guna2GroupBox();
-            LBL_ServerPort = new Label();
             LBL_GameVersion = new Label();
             GBX_NetworkStats.SuspendLayout();
             GBX_HardwareStats.SuspendLayout();
@@ -60,6 +61,7 @@
             GBX_NetworkStats.BorderRadius = 5;
             GBX_NetworkStats.BorderThickness = 2;
             GBX_NetworkStats.Controls.Add(LBL_Ping);
+            GBX_NetworkStats.Controls.Add(LBL_DefaultGateway);
             GBX_NetworkStats.Controls.Add(LBL_ServerPort);
             GBX_NetworkStats.Controls.Add(LBL_RemoteIP);
             GBX_NetworkStats.Controls.Add(LBL_LocalIP);
@@ -74,29 +76,16 @@
             GBX_NetworkStats.ShadowDecoration.CustomizableEdges = customizableEdges2;
             GBX_NetworkStats.ShadowDecoration.Depth = 10;
             GBX_NetworkStats.ShadowDecoration.Shadow = new Padding(6);
-            GBX_NetworkStats.Size = new Size(258, 215);
+            GBX_NetworkStats.Size = new Size(258, 246);
             GBX_NetworkStats.TabIndex = 0;
             GBX_NetworkStats.Text = "Network";
             GBX_NetworkStats.TextAlign = HorizontalAlignment.Center;
             GBX_NetworkStats.UseTransparentBackground = true;
             // 
-            // LBL_ServerUptime
-            // 
-            LBL_ServerUptime.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_ServerUptime.Location = new Point(20, 132);
-            LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
-            LBL_ServerUptime.Name = "LBL_ServerUptime";
-            LBL_ServerUptime.Size = new Size(155, 68);
-            LBL_ServerUptime.TabIndex = 0;
-            LBL_ServerUptime.Text = "Uptime: not started yet.";
-            LBL_ServerUptime.TextAlign = ContentAlignment.MiddleCenter;
-            ToolTip.SetToolTip(LBL_ServerUptime, "This is the total time your server is running.");
-            LBL_ServerUptime.Click += LBL_RemoteIP_Click;
-            // 
             // LBL_Ping
             // 
             LBL_Ping.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_Ping.Location = new Point(20, 132);
+            LBL_Ping.Location = new Point(20, 210);
             LBL_Ping.Margin = new Padding(20, 5, 20, 5);
             LBL_Ping.Name = "LBL_Ping";
             LBL_Ping.Size = new Size(218, 29);
@@ -105,6 +94,32 @@
             LBL_Ping.TextAlign = ContentAlignment.MiddleCenter;
             ToolTip.SetToolTip(LBL_Ping, "Displays the roundtrip time to 8.8.8.8.");
             LBL_Ping.Click += LBL_RemoteIP_Click;
+            // 
+            // LBL_DefaultGateway
+            // 
+            LBL_DefaultGateway.AutoEllipsis = true;
+            LBL_DefaultGateway.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_DefaultGateway.Location = new Point(20, 132);
+            LBL_DefaultGateway.Margin = new Padding(20, 5, 20, 5);
+            LBL_DefaultGateway.Name = "LBL_DefaultGateway";
+            LBL_DefaultGateway.Size = new Size(218, 29);
+            LBL_DefaultGateway.TabIndex = 0;
+            LBL_DefaultGateway.Text = "Default Gateway: 0.0.0.0";
+            LBL_DefaultGateway.TextAlign = ContentAlignment.MiddleCenter;
+            LBL_DefaultGateway.Click += LBL_LocalIP_Click;
+            // 
+            // LBL_ServerPort
+            // 
+            LBL_ServerPort.AutoEllipsis = true;
+            LBL_ServerPort.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_ServerPort.Location = new Point(20, 171);
+            LBL_ServerPort.Margin = new Padding(20, 5, 20, 5);
+            LBL_ServerPort.Name = "LBL_ServerPort";
+            LBL_ServerPort.Size = new Size(218, 29);
+            LBL_ServerPort.TabIndex = 0;
+            LBL_ServerPort.Text = "Binding: Server not running.";
+            LBL_ServerPort.TextAlign = ContentAlignment.MiddleCenter;
+            LBL_ServerPort.Click += LBL_LocalIP_Click;
             // 
             // LBL_RemoteIP
             // 
@@ -135,6 +150,19 @@
             LBL_LocalIP.TextAlign = ContentAlignment.MiddleCenter;
             ToolTip.SetToolTip(LBL_LocalIP, "Click to copy your local adress");
             LBL_LocalIP.Click += LBL_LocalIP_Click;
+            // 
+            // LBL_ServerUptime
+            // 
+            LBL_ServerUptime.Font = new Font("Microsoft YaHei UI", 11.25F);
+            LBL_ServerUptime.Location = new Point(20, 132);
+            LBL_ServerUptime.Margin = new Padding(20, 5, 20, 5);
+            LBL_ServerUptime.Name = "LBL_ServerUptime";
+            LBL_ServerUptime.Size = new Size(155, 68);
+            LBL_ServerUptime.TabIndex = 0;
+            LBL_ServerUptime.Text = "Uptime: not started yet.";
+            LBL_ServerUptime.TextAlign = ContentAlignment.MiddleCenter;
+            ToolTip.SetToolTip(LBL_ServerUptime, "This is the total time your server is running.");
+            LBL_ServerUptime.Click += LBL_RemoteIP_Click;
             // 
             // LBL_CpuUsage
             // 
@@ -214,19 +242,6 @@
             GPB_GameStats.TextAlign = HorizontalAlignment.Center;
             GPB_GameStats.UseTransparentBackground = true;
             // 
-            // LBL_ServerPort
-            // 
-            LBL_ServerPort.AutoEllipsis = true;
-            LBL_ServerPort.Font = new Font("Microsoft YaHei UI", 11.25F);
-            LBL_ServerPort.Location = new Point(20, 171);
-            LBL_ServerPort.Margin = new Padding(20, 5, 20, 5);
-            LBL_ServerPort.Name = "LBL_ServerPort";
-            LBL_ServerPort.Size = new Size(218, 29);
-            LBL_ServerPort.TabIndex = 0;
-            LBL_ServerPort.Text = "Binding: Server not running.";
-            LBL_ServerPort.TextAlign = ContentAlignment.MiddleCenter;
-            LBL_ServerPort.Click += LBL_LocalIP_Click;
-            // 
             // LBL_GameVersion
             // 
             LBL_GameVersion.AutoEllipsis = true;
@@ -275,5 +290,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox GPB_GameStats;
         private Label LBL_GameVersion;
         private Label LBL_ServerPort;
+        private Label LBL_DefaultGateway;
     }
 }

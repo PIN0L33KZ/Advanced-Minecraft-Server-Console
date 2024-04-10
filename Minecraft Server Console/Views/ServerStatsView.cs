@@ -31,11 +31,13 @@ namespace Minecraft_Server_Console.Views
         {
             while(true)
             {
+                // Update remote ip address
                 _remoteIpAddress = GetRemoteIPAsync();
 
                 _ = BeginInvoke(new Action(() =>
                 {
                     LBL_LocalIP.Text = "Local-IP: " + GetLocalIP();
+                    LBL_DefaultGateway.Text = "Default Gateway: " + GetDefaultGateway();
                     LBL_RemoteIP.Text = "Remote-IP: " + _remoteIpAddress;
                 }));
 
@@ -110,6 +112,24 @@ namespace Minecraft_Server_Console.Views
             return new IPAddress(0x0000000f);
         }
 
+        private static IPAddress GetDefaultGateway()
+        {
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+            foreach(NetworkInterface iface in interfaces)
+            {
+                if(iface.NetworkInterfaceType == NetworkInterfaceType.Ethernet || iface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
+                {
+                    IPInterfaceProperties properties = iface.GetIPProperties();
+                    GatewayIPAddressInformation gateway = properties.GatewayAddresses[0];
+
+                    return gateway.Address;
+                }
+            }
+
+            return new IPAddress(0x0000000f);
+        }
+
         private string GetRemoteIPAsync()
         {
             using WebClient webClient = new();
@@ -122,7 +142,7 @@ namespace Minecraft_Server_Console.Views
                 FRM_DialogBox dialogBox = new("Error", "Unable to fetch remote ip. You may be offline?\n" + ex.Message, DialogBoxButtons.OK, DialogIcons.Error) { Owner = FindForm() };
                 _ = dialogBox.ShowDialog();
                 dialogBox.Dispose();
-                return "";
+                return "Error. Offline?";
             }
         }
 
@@ -165,6 +185,9 @@ namespace Minecraft_Server_Console.Views
             try
             {
                 string hiddenRemoteIpAddress = "";
+
+                if(_remoteIpAddress == null)
+                    _remoteIpAddress = String.Empty;
 
                 foreach(char c in _remoteIpAddress)
                 {

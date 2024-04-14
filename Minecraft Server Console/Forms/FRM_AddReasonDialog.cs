@@ -15,7 +15,7 @@
             int x = Owner.Left + ((Owner.Width - Width) / 2);
             int y = Owner.Top + ((Owner.Height - Height) / 2);
 
-            Location = new System.Drawing.Point(x, y);
+            Location = new Point(x, y);
         }
 
         private void AddReasonDialog_KeyDown(object sender, KeyEventArgs e)

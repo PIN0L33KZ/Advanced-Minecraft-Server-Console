@@ -76,7 +76,7 @@ namespace Minecraft_Server_Console.Views
                 }
 
                 DateTime now = DateTime.Now;
-
+                
                 TimeSpan span = now - startTime;
 
                 _ = BeginInvoke(new Action(() => { LBL_ServerUptime.Text = $"Uptime: {FormatTimeSpan(span)}"; }));
